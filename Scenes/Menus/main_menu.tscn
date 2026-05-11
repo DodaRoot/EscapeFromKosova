@@ -1,0 +1,433 @@
+[gd_scene format=3 uid="uid://biwq56nlwo40u"]
+
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="1_38aua"]
+[ext_resource type="Script" uid="uid://beusk85l4ep6v" path="res://Scripts/main_menu.gd" id="1_aur2u"]
+[ext_resource type="Texture2D" uid="uid://dxu7wxyf7084l" path="res://Assets/Backgrounds/BlurMenuBackground.png" id="1_pha2q"]
+[ext_resource type="Texture2D" uid="uid://bb30vu8sqqqfa" path="res://Assets/Backgrounds/EFK_Title.png" id="3_8dws6"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="4_5wi6m"]
+[ext_resource type="Texture2D" uid="uid://dlhhf23rgfa48" path="res://Assets/UI/Buttons/Guns_Default.png" id="5_4fgt5"]
+[ext_resource type="Texture2D" uid="uid://fvgx5b4vqife" path="res://Assets/UI/Buttons/Guns_Pressed.png" id="6_j4kqa"]
+[ext_resource type="AudioStream" uid="uid://dxeecp3m3bt76" path="res://Assets/Audio/Entities/ButtonClick2.mp3" id="7_0xbgx"]
+[ext_resource type="Texture2D" uid="uid://mj8qt6wb2fln" path="res://Assets/UI/Buttons/Clothes_Default.png" id="7_anmaw"]
+[ext_resource type="Texture2D" uid="uid://d2eyxjejndsom" path="res://Assets/UI/Buttons/Clothes_Pressed.png" id="8_ftsii"]
+[ext_resource type="Texture2D" uid="uid://cy245h50sjb5w" path="res://Assets/UI/Buttons/Button_Default.png" id="9_80s4p"]
+[ext_resource type="Texture2D" uid="uid://bxkhhuh2mp1ma" path="res://Assets/UI/Buttons/Character_Default.png" id="9_lg1h6"]
+[ext_resource type="Texture2D" uid="uid://dx6erk41kbk6n" path="res://Assets/UI/Buttons/Button_Pressed.png" id="10_6t1rs"]
+[ext_resource type="Texture2D" uid="uid://bjby6s31ujcqq" path="res://Assets/UI/Buttons/Character_Pressed.png" id="10_80s4p"]
+[ext_resource type="Texture2D" uid="uid://cl5t4iri22j2p" path="res://Assets/UI/Buttons/Skills_Default.png" id="11_6t1rs"]
+[ext_resource type="Texture2D" uid="uid://dupsxqtke5hvs" path="res://Assets/UI/Buttons/Skills_Pressed.png" id="12_0xbgx"]
+
+[sub_resource type="Animation" id="Animation_0xbgx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6t1rs"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 30), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dws6"]
+_data = {
+&"RESET": SubResource("Animation_0xbgx"),
+&"idle": SubResource("Animation_6t1rs")
+}
+
+[node name="MainMenu" type="Control" unique_id=519692420]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_aur2u")
+
+[node name="Background" type="TextureRect" parent="." unique_id=870556578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pha2q")
+
+[node name="TitleContainer" type="HBoxContainer" parent="." unique_id=771652710]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 290.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="TitleContainer" unique_id=1661196114]
+modulate = Color(1, 0.8980392, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("3_8dws6")
+
+[node name="Tutorial" type="Control" parent="." unique_id=1778734176]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="Guns" type="Control" parent="Tutorial" unique_id=462553604]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Guns" unique_id=994918488]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -11.5
+offset_right = 109.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("1_38aua")
+theme_override_font_sizes/font_size = 70
+text = "View the guns you own here"
+
+[node name="Clothing" type="Control" parent="Tutorial" unique_id=258715904]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Clothing" unique_id=1155082767]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -11.5
+offset_right = 109.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("1_38aua")
+theme_override_font_sizes/font_size = 70
+text = "Buy diferent clothes here"
+
+[node name="Characters" type="Control" parent="Tutorial" unique_id=871704242]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Characters" unique_id=645294525]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -11.5
+offset_right = 109.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("1_38aua")
+theme_override_font_sizes/font_size = 70
+text = "Select diferent characters here"
+
+[node name="Skills" type="Control" parent="Tutorial" unique_id=753007999]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Skills" unique_id=1490876937]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -11.5
+offset_right = 109.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("1_38aua")
+theme_override_font_sizes/font_size = 70
+text = "Improve your skills here"
+
+[node name="ContentContainer" type="HBoxContainer" parent="." unique_id=1302832581]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 359.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftButtons" type="Control" parent="ContentContainer" unique_id=1524322359]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="GunSelect" parent="ContentContainer/LeftButtons" unique_id=1354164498 instance=ExtResource("4_5wi6m")]
+layout_mode = 1
+offset_left = 20.0
+offset_right = 271.0
+icon = ExtResource("5_4fgt5")
+icon_default = ExtResource("5_4fgt5")
+icon_pressed = ExtResource("6_j4kqa")
+click_sound = ExtResource("7_0xbgx")
+
+[node name="ClothesSelect" parent="ContentContainer/LeftButtons" unique_id=83314930 instance=ExtResource("4_5wi6m")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -266.0
+offset_right = 271.0
+offset_bottom = 0.0
+grow_vertical = 0
+icon = ExtResource("7_anmaw")
+icon_default = ExtResource("7_anmaw")
+icon_pressed = ExtResource("8_ftsii")
+click_sound = ExtResource("7_0xbgx")
+
+[node name="MainButtons" type="Control" parent="ContentContainer" unique_id=1626833785]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Play" parent="ContentContainer/MainButtons" unique_id=1178725499 instance=ExtResource("4_5wi6m")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -377.5
+offset_right = 377.5
+offset_bottom = 209.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.9)
+pivot_offset = Vector2(377.5, 104.5)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("9_80s4p")
+icon_default = ExtResource("9_80s4p")
+icon_pressed = ExtResource("10_6t1rs")
+
+[node name="PlayText" type="Label" parent="ContentContainer/MainButtons/Play" unique_id=2147267180]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -11.6111145
+offset_bottom = -37.611115
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/shadow_offset_x = 13
+theme_override_constants/shadow_offset_y = 13
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("1_38aua")
+theme_override_font_sizes/font_size = 150
+text = "Play"
+horizontal_alignment = 1
+
+[node name="Options" parent="ContentContainer/MainButtons" unique_id=40568266 instance=ExtResource("4_5wi6m")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.5
+offset_top = -104.5
+offset_right = 377.5
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(377.5, 104.5)
+size_flags_vertical = 6
+icon = ExtResource("9_80s4p")
+icon_default = ExtResource("9_80s4p")
+icon_pressed = ExtResource("10_6t1rs")
+
+[node name="OptionsText" type="Label" parent="ContentContainer/MainButtons/Options" unique_id=467353464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -11.6111145
+offset_bottom = -37.611115
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/shadow_offset_x = 13
+theme_override_constants/shadow_offset_y = 13
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("1_38aua")
+theme_override_font_sizes/font_size = 150
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Exit" parent="ContentContainer/MainButtons" unique_id=564708554 instance=ExtResource("4_5wi6m")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.5
+offset_top = -209.0
+offset_right = 377.5
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.9)
+pivot_offset = Vector2(377.5, 104.5)
+icon = ExtResource("9_80s4p")
+icon_default = ExtResource("9_80s4p")
+icon_pressed = ExtResource("10_6t1rs")
+
+[node name="ExitText" type="Label" parent="ContentContainer/MainButtons/Exit" unique_id=1838813046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.49996948
+offset_bottom = -26.49997
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/shadow_offset_x = 13
+theme_override_constants/shadow_offset_y = 13
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("1_38aua")
+theme_override_font_sizes/font_size = 150
+text = "Exit"
+horizontal_alignment = 1
+
+[node name="RightButtons" type="Control" parent="ContentContainer" unique_id=1058556566]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="CharacterSelect" parent="ContentContainer/RightButtons" unique_id=1649125109 instance=ExtResource("4_5wi6m")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_right = -19.0
+offset_bottom = 265.0
+grow_horizontal = 0
+icon = ExtResource("9_lg1h6")
+icon_default = ExtResource("9_lg1h6")
+icon_pressed = ExtResource("10_80s4p")
+click_sound = ExtResource("7_0xbgx")
+
+[node name="SkillsSelect" parent="ContentContainer/RightButtons" unique_id=606464950 instance=ExtResource("4_5wi6m")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -266.0
+offset_right = -19.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("11_6t1rs")
+icon_default = ExtResource("11_6t1rs")
+icon_pressed = ExtResource("12_0xbgx")
+click_sound = ExtResource("7_0xbgx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1995594252]
+libraries/ = SubResource("AnimationLibrary_8dws6")
+autoplay = &"idle"
+
+[connection signal="pressed" from="ContentContainer/LeftButtons/GunSelect" to="." method="_on_gun_select_pressed"]
+[connection signal="pressed" from="ContentContainer/LeftButtons/ClothesSelect" to="." method="_on_clothes_select_pressed"]
+[connection signal="pressed" from="ContentContainer/MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ContentContainer/MainButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ContentContainer/MainButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ContentContainer/RightButtons/CharacterSelect" to="." method="_on_character_select_pressed"]
+[connection signal="pressed" from="ContentContainer/RightButtons/SkillsSelect" to="." method="_on_skills_select_pressed"]

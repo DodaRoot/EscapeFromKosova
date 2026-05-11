@@ -1,0 +1,703 @@
+[gd_scene format=3 uid="uid://dyip2awxpb3mm"]
+
+[ext_resource type="Texture2D" uid="uid://l7xb3c5643h" path="res://Assets/Backgrounds/ShopBackgroundBlur.png" id="1_ofg04"]
+[ext_resource type="Script" uid="uid://h6ssd8n0ojn1" path="res://Scripts/clothes_select.gd" id="1_u73pk"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="2_us81h"]
+[ext_resource type="Texture2D" uid="uid://b6ue3j3changq" path="res://Assets/UI/Buttons/Arrow_Default.png" id="3_4icet"]
+[ext_resource type="Texture2D" uid="uid://ba1syvhgayjrs" path="res://Assets/UI/Buttons/Arrow_Pressed.png" id="4_3aeaa"]
+[ext_resource type="Texture2D" uid="uid://wk8dhbjjshtp" path="res://Assets/UI/MenuItems/Money.png" id="4_7fboj"]
+[ext_resource type="Texture2D" uid="uid://df287s3wlcawa" path="res://Assets/UI/MenuItems/WoodTable.png" id="5_i5g8q"]
+[ext_resource type="Texture2D" uid="uid://dhbht0fncwy0f" path="res://Assets/Characters/Clothing/MenuClothing/MenuOrdinary.png" id="5_u73pk"]
+[ext_resource type="Texture2D" uid="uid://dkofonpfoymhb" path="res://Assets/Characters/Clothing/MenuClothing/MenuShorts.png" id="6_k2o52"]
+[ext_resource type="Texture2D" uid="uid://pnj11xoh0h5h" path="res://Assets/UI/MenuItems/WoodHeader.png" id="6_xbc02"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="7_34pi2"]
+[ext_resource type="Texture2D" uid="uid://bt4chiwbrh13c" path="res://Assets/Characters/Clothing/MenuClothing/MenuTradicional.png" id="7_u73pk"]
+[ext_resource type="Texture2D" uid="uid://civc7vy5ewpni" path="res://Assets/Characters/Clothing/MenuClothing/MenuSuit.png" id="8_7fboj"]
+[ext_resource type="Texture2D" uid="uid://cn0iwp6o8pro3" path="res://Assets/UI/MenuItems/ItemContainerL.png" id="9_57vr5"]
+[ext_resource type="Texture2D" uid="uid://cspv3hbprb5by" path="res://Assets/Characters/Clothing/MenuClothing/MenuUQK.png" id="9_uaf7n"]
+[ext_resource type="Texture2D" uid="uid://cy245h50sjb5w" path="res://Assets/UI/Buttons/Button_Default.png" id="11_rxufj"]
+[ext_resource type="Texture2D" uid="uid://dx6erk41kbk6n" path="res://Assets/UI/Buttons/Button_Pressed.png" id="12_jlmnn"]
+[ext_resource type="AudioStream" uid="uid://dxeecp3m3bt76" path="res://Assets/Audio/Entities/ButtonClick2.mp3" id="18_4icet"]
+
+[sub_resource type="Theme" id="Theme_25nbp"]
+
+[node name="ClothesSelect" type="Control" unique_id=353917928]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_u73pk")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1437073754]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ofg04")
+
+[node name="DefaultMenu" type="TextureRect" parent="." unique_id=1976234562]
+custom_minimum_size = Vector2(700, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -450.0
+offset_right = 500.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_i5g8q")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="DefaultMenu" unique_id=205767510]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 560.0
+offset_bottom = 100.0
+texture = ExtResource("6_xbc02")
+expand_mode = 1
+
+[node name="TitleText" type="Label" parent="DefaultMenu/Title" unique_id=291406303]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 65
+text = "Clothes Selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyText" type="Label" parent="DefaultMenu" unique_id=686655793]
+layout_mode = 0
+offset_left = 655.0
+offset_top = 14.0
+offset_right = 926.0
+offset_bottom = 81.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 55
+text = "1000000"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="DefaultMenu" unique_id=934421750]
+position = Vector2(951, 48)
+scale = Vector2(0.20566498, 0.20566498)
+texture = ExtResource("4_7fboj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DefaultMenu" unique_id=1489275782]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = 131.0
+offset_right = -59.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_25nbp")
+
+[node name="ChlothingContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer" unique_id=1376782364]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+
+[node name="Ordinary" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/ChlothingContainer" unique_id=1675348828]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary" unique_id=1380742602]
+custom_minimum_size = Vector2(840, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_57vr5")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer" unique_id=41648254]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 43.000008
+offset_top = 29.0
+offset_right = 403.0
+offset_bottom = 301.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_u73pk")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer" unique_id=1863166429]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer/Text" unique_id=1298424292]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 18.0
+offset_right = 618.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 38
+text = "Ordinary Clothing"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer/Text" unique_id=1690573159]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 67.0
+offset_right = 582.0
+offset_bottom = 211.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 30
+text = "Civilian Clothes for day to day"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer/Text" unique_id=1067315282]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 162.0
+offset_right = 824.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 49
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceIcon" type="Sprite2D" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer/Text/Price" unique_id=569488847]
+position = Vector2(177.97656, 30.9375)
+scale = Vector2(0.18657628, 0.18657629)
+texture = ExtResource("4_7fboj")
+
+[node name="BuyOrdinary" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer" unique_id=1659585668 instance=ExtResource("2_us81h")]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 92.0
+offset_right = 1377.0
+offset_bottom = 358.0
+scale = Vector2(0.27, 0.27)
+icon = ExtResource("11_rxufj")
+icon_default = ExtResource("11_rxufj")
+icon_pressed = ExtResource("12_jlmnn")
+offset = 5
+
+[node name="ButtonText" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer/BuyOrdinary" unique_id=1381088547]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.6110535
+offset_bottom = -66.38895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 160
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shorts" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/ChlothingContainer" unique_id=1873832430]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts" unique_id=992676340]
+custom_minimum_size = Vector2(840, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_57vr5")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer" unique_id=318596164]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 29.0
+offset_right = 403.0
+offset_bottom = 301.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_k2o52")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer" unique_id=1222540311]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer/Text" unique_id=702835091]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 18.0
+offset_right = 618.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 38
+text = "Shorts Clothing"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer/Text" unique_id=684585291]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 67.0
+offset_right = 582.0
+offset_bottom = 211.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 30
+text = "Summer clothes ready for albanian beaches"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer/Text" unique_id=1204093140]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 162.0
+offset_right = 824.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 49
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceIcon" type="Sprite2D" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer/Text/Price" unique_id=914419787]
+position = Vector2(177.97656, 30.9375)
+scale = Vector2(0.18657628, 0.18657629)
+texture = ExtResource("4_7fboj")
+
+[node name="BuyShorts" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer" unique_id=1395688463 instance=ExtResource("2_us81h")]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 92.0
+offset_right = 1377.0
+offset_bottom = 358.0
+scale = Vector2(0.27, 0.27)
+icon = ExtResource("11_rxufj")
+icon_default = ExtResource("11_rxufj")
+icon_pressed = ExtResource("12_jlmnn")
+offset = 5
+
+[node name="ButtonText" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer/BuyShorts" unique_id=293908722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.6110535
+offset_bottom = -66.38895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 160
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tradicional" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/ChlothingContainer" unique_id=1972825721]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional" unique_id=1600330898]
+custom_minimum_size = Vector2(840, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_57vr5")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer" unique_id=1756094263]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 29.0
+offset_right = 403.0
+offset_bottom = 301.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_u73pk")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer" unique_id=791730137]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer/Text" unique_id=1353103331]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 18.0
+offset_right = 618.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 38
+text = "Tradicional Clothing"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer/Text" unique_id=248456612]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 67.0
+offset_right = 582.0
+offset_bottom = 211.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 30
+text = "Tradicional albanian clothing you are ready for a wedding"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer/Text" unique_id=1143022020]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 162.0
+offset_right = 824.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 49
+text = "1500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceIcon" type="Sprite2D" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer/Text/Price" unique_id=167694485]
+position = Vector2(177.97656, 30.9375)
+scale = Vector2(0.18657628, 0.18657629)
+texture = ExtResource("4_7fboj")
+
+[node name="BuyTradicional" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer" unique_id=354037914 instance=ExtResource("2_us81h")]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 92.0
+offset_right = 1377.0
+offset_bottom = 358.0
+scale = Vector2(0.27, 0.27)
+icon = ExtResource("11_rxufj")
+icon_default = ExtResource("11_rxufj")
+icon_pressed = ExtResource("12_jlmnn")
+offset = 5
+
+[node name="ButtonText" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer/BuyTradicional" unique_id=1120127391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.6110535
+offset_bottom = -66.38895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 160
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Suit" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/ChlothingContainer" unique_id=1549589900]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit" unique_id=1883070124]
+custom_minimum_size = Vector2(840, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_57vr5")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer" unique_id=1535502117]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 29.0
+offset_right = 403.0
+offset_bottom = 301.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_7fboj")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer" unique_id=673395418]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer/Text" unique_id=212053482]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 18.0
+offset_right = 618.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 38
+text = "Suit Clothing"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer/Text" unique_id=602035040]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 67.0
+offset_right = 582.0
+offset_bottom = 211.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 30
+text = "Suit and tie for when you have that big money"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer/Text" unique_id=1914520947]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 162.0
+offset_right = 824.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 49
+text = "2500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceIcon" type="Sprite2D" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer/Text/Price" unique_id=991386919]
+position = Vector2(177.97656, 30.9375)
+scale = Vector2(0.18657628, 0.18657629)
+texture = ExtResource("4_7fboj")
+
+[node name="BuySuit" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer" unique_id=1884800578 instance=ExtResource("2_us81h")]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 92.0
+offset_right = 1377.0
+offset_bottom = 358.0
+scale = Vector2(0.27, 0.27)
+icon = ExtResource("11_rxufj")
+icon_default = ExtResource("11_rxufj")
+icon_pressed = ExtResource("12_jlmnn")
+offset = 5
+
+[node name="ButtonText" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer/BuySuit" unique_id=92270721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.6110535
+offset_bottom = -66.38895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 160
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UQKuniform" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/ChlothingContainer" unique_id=2060777146]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform" unique_id=661324694]
+custom_minimum_size = Vector2(840, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_57vr5")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer" unique_id=703583301]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 29.0
+offset_right = 403.0
+offset_bottom = 301.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_uaf7n")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer" unique_id=12685248]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer/Text" unique_id=1732508399]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 18.0
+offset_right = 618.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 38
+text = "UQK Uniform"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer/Text" unique_id=1812769443]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 67.0
+offset_right = 582.0
+offset_bottom = 211.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 30
+text = "Standard UQK uniform ready for the fight"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer/Text" unique_id=2119782028]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 162.0
+offset_right = 824.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 49
+text = "3000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceIcon" type="Sprite2D" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer/Text/Price" unique_id=1625185247]
+position = Vector2(177.97656, 30.9375)
+scale = Vector2(0.18657628, 0.18657629)
+texture = ExtResource("4_7fboj")
+
+[node name="BuyUQKuniform" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer" unique_id=2015163249 instance=ExtResource("2_us81h")]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 92.0
+offset_right = 1377.0
+offset_bottom = 358.0
+scale = Vector2(0.27, 0.27)
+icon = ExtResource("11_rxufj")
+icon_default = ExtResource("11_rxufj")
+icon_pressed = ExtResource("12_jlmnn")
+offset = 5
+
+[node name="ButtonText" type="Label" parent="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer/BuyUQKuniform" unique_id=1960098785]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.6110535
+offset_bottom = -66.38895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("7_34pi2")
+theme_override_font_sizes/font_size = 160
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackPlaceholder" type="Control" parent="." unique_id=755600408]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="Back" parent="BackPlaceholder" unique_id=384258438 instance=ExtResource("2_us81h")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 269.0
+grow_horizontal = 0
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(125.5, 133)
+mouse_behavior_recursive = 2
+icon = ExtResource("3_4icet")
+icon_default = ExtResource("3_4icet")
+icon_pressed = ExtResource("4_3aeaa")
+offset = 8
+click_sound = ExtResource("18_4icet")
+
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/ChlothingContainer/Ordinary/ItemContainer/BuyOrdinary" to="." method="_on_buy_ordinary_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/ChlothingContainer/Shorts/ItemContainer/BuyShorts" to="." method="_on_buy_shorts_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/ChlothingContainer/Tradicional/ItemContainer/BuyTradicional" to="." method="_on_buy_tradicional_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/ChlothingContainer/Suit/ItemContainer/BuySuit" to="." method="_on_buy_suit_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/ChlothingContainer/UQKuniform/ItemContainer/BuyUQKuniform" to="." method="_on_buy_uq_kuniform_pressed"]
+[connection signal="pressed" from="BackPlaceholder/Back" to="." method="_on_back_pressed"]

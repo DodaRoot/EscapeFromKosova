@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dnfqrwk71ghir"]
+
+[ext_resource type="Script" uid="uid://b0qsyr5te2pnr" path="res://Scripts/audio_stream_player.gd" id="1_csetf"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=135317736]
+volume_db = 5.0
+bus = &"SFX"
+script = ExtResource("1_csetf")

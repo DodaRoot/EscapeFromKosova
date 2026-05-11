@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://b4exrdvx86b6w"]
+
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="1_hpqol"]
+[ext_resource type="Script" uid="uid://jnkyd1n8ibqa" path="res://Scripts/opening_cinematic.gd" id="1_km7ya"]
+[ext_resource type="Texture2D" uid="uid://cryksjwwwsegc" path="res://Assets/Backgrounds/CinematicBack1.png" id="2_r0pwq"]
+
+[sub_resource type="Gradient" id="Gradient_r0pwq"]
+offsets = PackedFloat32Array(0.006329114, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_km7ya"]
+gradient = SubResource("Gradient_r0pwq")
+
+[node name="OpeningCinematic" type="Node2D" unique_id=1041952724]
+script = ExtResource("1_km7ya")
+
+[node name="Scene1" type="CanvasLayer" parent="." unique_id=391682913]
+
+[node name="TextureRect" type="TextureRect" parent="Scene1" unique_id=711118162]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_km7ya")
+
+[node name="Label" type="Label" parent="Scene1" unique_id=1221283718]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.5
+offset_top = -55.0
+offset_right = 323.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_hpqol")
+theme_override_font_sizes/font_size = 90
+text = "The year is 1999"
+
+[node name="Scene2" type="CanvasLayer" parent="." unique_id=1482695258]
+
+[node name="TextureRect" type="TextureRect" parent="Scene2" unique_id=634949619]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r0pwq")
+
+[node name="Label" type="Label" parent="Scene2" unique_id=324870423]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.5
+offset_top = -55.0
+offset_right = 549.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_hpqol")
+theme_override_font_sizes/font_size = 90
+text = "You find yourself in Kosova"
+
+[node name="Scene3" type="CanvasLayer" parent="." unique_id=1857587164]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Scene3" unique_id=679582271]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r0pwq")
+
+[node name="Label" type="Label" parent="Scene3" unique_id=445663745]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -55.0
+offset_right = 292.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 9
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("1_hpqol")
+theme_override_font_sizes/font_size = 90
+text = "Your only goal"
+horizontal_alignment = 1
+
+[node name="Scene4" type="CanvasLayer" parent="." unique_id=1517736982]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Scene4" unique_id=21850023]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r0pwq")
+
+[node name="Label" type="Label" parent="Scene4" unique_id=872563024]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -799.0
+offset_top = -302.5
+offset_right = 799.0
+offset_bottom = 302.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.7137255, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_constants/shadow_offset_x = 30
+theme_override_constants/shadow_offset_y = 30
+theme_override_constants/outline_size = 70
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("1_hpqol")
+theme_override_font_sizes/font_size = 500
+text = "Escape"
+horizontal_alignment = 1

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://i45ev0a3grut"]
+
+[ext_resource type="Script" uid="uid://cy4ch8p4ka58" path="res://Scripts/mine.gd" id="1_g6ejy"]
+[ext_resource type="Texture2D" uid="uid://chetcd7bsm7ts" path="res://Assets/Tiles/Entities/Mine.png" id="1_yva7y"]
+[ext_resource type="AudioStream" uid="uid://umkr4nafcy86" path="res://Assets/Audio/Entities/ExplosionSmall.mp3" id="3_n82j7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yva7y"]
+size = Vector2(80, 9)
+
+[sub_resource type="Gradient" id="Gradient_g6ejy"]
+colors = PackedColorArray(1, 0.5764706, 0, 1, 1, 1, 1, 0)
+
+[node name="Mine" type="Area2D" unique_id=1076857818]
+script = ExtResource("1_g6ejy")
+
+[node name="MineTexture" type="Sprite2D" parent="." unique_id=1262038858]
+position = Vector2(0, 3.0000005)
+scale = Vector2(1, 0.7366667)
+texture = ExtResource("1_yva7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1441023700]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_yva7y")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2011443370]
+emitting = false
+amount = 60
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 700.0
+initial_velocity_max = 1000.0
+scale_amount_min = 11.0
+scale_amount_max = 15.0
+color = Color(1, 0.5764706, 0, 1)
+color_ramp = SubResource("Gradient_g6ejy")
+
+[node name="Audio_EXPLOSION" type="AudioStreamPlayer" parent="." unique_id=1334724394]
+stream = ExtResource("3_n82j7")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

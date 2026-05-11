@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://dyjcxny40e6sn"]
+
+[ext_resource type="Texture2D" uid="uid://4wdm27bwllqy" path="res://Assets/Tiles/Entities/TankMuzzle.png" id="1_c5ymy"]
+[ext_resource type="Script" uid="uid://beste31dkyfnr" path="res://Scripts/tank_barell.gd" id="1_hcs2r"]
+[ext_resource type="Texture2D" uid="uid://c3bh4x5pxx5fs" path="res://Assets/Backgrounds/Effects/Explosion.png" id="2_hcs2r"]
+[ext_resource type="AudioStream" uid="uid://cpu85lo0jc731" path="res://Assets/Audio/Guns/GrenadeLauncher.mp3" id="4_0lanc"]
+
+[sub_resource type="Gradient" id="Gradient_pm6uf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obv4y"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(0, 0, 28, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0xmh"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(0, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s78ge"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(141, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bojn"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(282, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcutt"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(0, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15x0r"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(141, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on7su"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(282, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haphe"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(0, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enpyh"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(141, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48o3g"]
+atlas = ExtResource("2_hcs2r")
+region = Rect2(282, 266, 141, 133)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obv4y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0xmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s78ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bojn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcutt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15x0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on7su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haphe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enpyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48o3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 60.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_l4m6w"]
+offsets = PackedFloat32Array(0, 0.2)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lcwdt"]
+gradient = SubResource("Gradient_l4m6w")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="TankBarell" type="Node2D" unique_id=773794339]
+script = ExtResource("1_hcs2r")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=83005930]
+position = Vector2(189.4065, -1)
+
+[node name="TankBarell" type="Sprite2D" parent="." unique_id=652874400]
+z_index = 1
+position = Vector2(90.81299, -2.5935059)
+texture = ExtResource("1_c5ymy")
+flip_h = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1199808837]
+position = Vector2(189.4065, 0)
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 600.0
+scale_amount_min = 4.0
+scale_amount_max = 7.0
+color = Color(1, 0.3882353, 0, 1)
+color_ramp = SubResource("Gradient_pm6uf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=796098683]
+z_index = 1
+position = Vector2(190.4065, -1)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_obv4y")
+animation = &"shoot"
+frame = 10
+frame_progress = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1440805243]
+position = Vector2(189.40651, -9.536743e-07)
+scale = Vector2(5.632813, 5.632813)
+color = Color(1, 0.30588236, 0.078431375, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_lcwdt")
+
+[node name="Audio" type="Node" parent="." unique_id=1084847314]
+
+[node name="Audio_ROCKETLAUNCH" type="AudioStreamPlayer" parent="Audio" unique_id=1392106250]
+stream = ExtResource("4_0lanc")
+volume_db = 5.0
+bus = &"SFX"

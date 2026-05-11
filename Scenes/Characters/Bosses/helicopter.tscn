@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c102n7scw2r7y"]
+
+[ext_resource type="Texture2D" uid="uid://hbhbujmbnff2" path="res://Assets/Tiles/Entities/Helicopter.png" id="1_nb0d7"]
+[ext_resource type="Script" uid="uid://ckuthrty2x1tp" path="res://Scripts/helicopter.gd" id="1_nvyfk"]
+[ext_resource type="AudioStream" uid="uid://b6ymgxev8yri3" path="res://Assets/Audio/Enemy/Helicopter.mp3" id="3_oagtw"]
+[ext_resource type="Texture2D" uid="uid://c0pswrj6nqpkn" path="res://Assets/Enemies/Faces/HealthOutline.png" id="4_jcf5v"]
+[ext_resource type="Texture2D" uid="uid://bau43m056offv" path="res://Assets/Enemies/Faces/HealthFill.png" id="5_i5ar8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oagtw"]
+radius = 91.0
+height = 542.0
+
+[node name="Helicopter" type="CharacterBody2D" unique_id=434048408 groups=["Enemy"]]
+z_index = -2
+script = ExtResource("1_nvyfk")
+health = 500
+DEATH_SPIN_SPEED = 1.0
+
+[node name="Helicopter" type="Sprite2D" parent="." unique_id=58530963]
+scale = Vector2(4, 4)
+texture = ExtResource("1_nb0d7")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=765929369]
+position = Vector2(0, 170)
+
+[node name="Audio_IdleFly" type="AudioStreamPlayer" parent="." unique_id=458430705]
+stream = ExtResource("3_oagtw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794423065]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_oagtw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=219021062]
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=289359797]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 144.0
+offset_right = 78.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.6, 1.5)
+pivot_offset = Vector2(77.5, 10)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_over = ExtResource("4_jcf5v")
+texture_progress = ExtResource("5_i5ar8")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

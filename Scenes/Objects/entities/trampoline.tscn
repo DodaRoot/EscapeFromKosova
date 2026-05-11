@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bco74y4b7rjx4"]
+
+[ext_resource type="Script" uid="uid://br5q8k0xod7nk" path="res://Scripts/trampoline.gd" id="1_5twvk"]
+[ext_resource type="Texture2D" uid="uid://bdah36uu4gofe" path="res://Assets/Tiles/Entities/Tramploline.png" id="1_a2bmq"]
+[ext_resource type="AudioStream" uid="uid://1ssvo6u40y32" path="res://Assets/Audio/Entities/Trampoline.mp3" id="3_be8ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2bmq"]
+size = Vector2(300, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qigsl"]
+size = Vector2(250, 60.83333)
+
+[node name="Trampoline" type="StaticBody2D" unique_id=381695943]
+script = ExtResource("1_5twvk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=871347724]
+position = Vector2(0, 20.250006)
+scale = Vector2(1.3, 1.0924999)
+texture = ExtResource("1_a2bmq")
+
+[node name="BounceArea" type="Area2D" parent="." unique_id=766877844]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea" unique_id=1685681391]
+position = Vector2(0, -33)
+scale = Vector2(0.88, 1)
+shape = SubResource("RectangleShape2D_a2bmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358249216]
+position = Vector2(-6.0498714e-06, 16.5)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_qigsl")
+
+[node name="Audio" type="Node" parent="." unique_id=1199903797]
+
+[node name="Audio_BOUNCE" type="AudioStreamPlayer" parent="Audio" unique_id=1551896146]
+stream = ExtResource("3_be8ge")
+bus = &"SFX"
+
+[connection signal="body_entered" from="BounceArea" to="." method="_on_bounce_area_body_entered"]

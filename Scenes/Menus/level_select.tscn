@@ -1,0 +1,1155 @@
+[gd_scene format=3 uid="uid://00pqni2ttiq"]
+
+[ext_resource type="Texture2D" uid="uid://rfw2owd6b8vt" path="res://Assets/UI/Map/Map.png" id="1_37jrt"]
+[ext_resource type="Script" uid="uid://bf3gmb7msmavf" path="res://Scripts/level_select.gd" id="1_orx1g"]
+[ext_resource type="Texture2D" uid="uid://b1qegm07e7hqd" path="res://Assets/Backgrounds/MapBackgroundBlur.png" id="2_bguu6"]
+[ext_resource type="PackedScene" uid="uid://crmbfa4iad3xo" path="res://Scenes/Menus/level_menu.tscn" id="2_jepxk"]
+[ext_resource type="Texture2D" uid="uid://b1w1nqtpe4rej" path="res://Assets/UI/Map/Level0.png" id="2_leldv"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="3_sbgtv"]
+[ext_resource type="Texture2D" uid="uid://clwqkpb7qdj83" path="res://Assets/UI/Map/Level1.png" id="3_sis06"]
+[ext_resource type="Texture2D" uid="uid://b57cf2wesxm6p" path="res://Assets/UI/Map/Level2.png" id="4_8wt4u"]
+[ext_resource type="Texture2D" uid="uid://b6ue3j3changq" path="res://Assets/UI/Buttons/Arrow_Default.png" id="4_kxgkv"]
+[ext_resource type="Texture2D" uid="uid://dlm4ifet0vs80" path="res://Assets/UI/Map/Level3.png" id="5_orx1g"]
+[ext_resource type="Texture2D" uid="uid://ba1syvhgayjrs" path="res://Assets/UI/Buttons/Arrow_Pressed.png" id="5_tbx44"]
+[ext_resource type="Texture2D" uid="uid://2ewemqhwojk7" path="res://Assets/UI/Map/Level4.png" id="6_fkxht"]
+[ext_resource type="Texture2D" uid="uid://cmkuxyy7e0nxp" path="res://Assets/UI/Map/Level5.png" id="7_y60pb"]
+[ext_resource type="Texture2D" uid="uid://bbyewvogwyari" path="res://Assets/UI/Map/Level6.png" id="8_824s3"]
+[ext_resource type="Texture2D" uid="uid://de7q5ox47nwpe" path="res://Assets/UI/Map/Level7.png" id="9_57mg2"]
+[ext_resource type="Texture2D" uid="uid://dfwja24wrj4ty" path="res://Assets/UI/Map/BigCloud_1.png" id="11_y60pb"]
+[ext_resource type="Texture2D" uid="uid://7j0v5dwwavgn" path="res://Assets/UI/Map/SmallCloud.png" id="12_824s3"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="18_jctwp"]
+[ext_resource type="Texture2D" uid="uid://cuqb5l6eo57st" path="res://Assets/UI/MenuItems/TutorialArrow.png" id="19_sbgtv"]
+
+[sub_resource type="Animation" id="Animation_fkxht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapContainer/Map:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MapContainer/Map:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1574, -1673.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MapContainer/Levels:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MapContainer/Levels:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MapContainer/Levels:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MapContainer/Map:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MapContainer/BigCloud:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-505, -180)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MapContainer/SmallCloud:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-284, -166)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MapContainer/SmallCloud:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MapContainer/BigCloud:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MapContainer/BigCloud:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MapContainer/SmallCloud:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MapContainer/Levels/Level0/TextureLevel:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("MapContainer/Levels/Level1/TextureLevel:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.4)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("MapContainer/Levels/Level2/TextureLevel:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.4)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("MapContainer/Levels/Level3/TextureLevel:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.4)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("MapContainer/Levels/Level4/TextureLevel:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.4)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("MapContainer/Levels/Level5/TextureLevel:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.4)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("MapContainer/Levels/Level6/TextureLevel:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.4)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("MapContainer/Levels/Level7/TextureLevel:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_y60pb"]
+resource_name = "idls"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapContainer/BigCloud:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.34906584, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MapContainer/SmallCloud:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.34906584, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MapContainer/SmallCloud:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-817, -559)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MapContainer/SmallCloud:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MapContainer/BigCloud:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -593)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MapContainer/BigCloud:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MapContainer/Levels:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MapContainer/Levels:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MapContainer/Levels:mouse_filter")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MapContainer/Map:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MapContainer/Map:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1574, -1673.5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MapContainer/Map:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MapContainer/Levels/Level0/TextureLevel:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.4, 0.42), Vector2(0.4, 0.4)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("MapContainer/Levels/Level1/TextureLevel:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.4), Vector2(0.45, 0.42), Vector2(0.45, 0.4)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("MapContainer/Levels/Level2/TextureLevel:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.4), Vector2(0.45, 0.42), Vector2(0.45, 0.4)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("MapContainer/Levels/Level3/TextureLevel:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.4), Vector2(0.45, 0.42), Vector2(0.45, 0.4)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("MapContainer/Levels/Level4/TextureLevel:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.4), Vector2(0.45, 0.42), Vector2(0.45, 0.4)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("MapContainer/Levels/Level5/TextureLevel:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.4), Vector2(0.45, 0.42), Vector2(0.45, 0.4)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("MapContainer/Levels/Level6/TextureLevel:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.4), Vector2(0.45, 0.42), Vector2(0.45, 0.4)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("MapContainer/Levels/Level7/TextureLevel:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.45, 0.4), Vector2(0.45, 0.42), Vector2(0.45, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_orx1g"]
+resource_name = "load_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapContainer/Map:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MapContainer/Map:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1574, -962.0001), Vector2(-1574, -1673.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MapContainer/Levels:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MapContainer/Levels:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MapContainer/Levels:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MapContainer/Map:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MapContainer/BigCloud:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-323, -187), Vector2(-8, -593)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MapContainer/SmallCloud:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-590, -194), Vector2(-817, -559)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MapContainer/SmallCloud:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MapContainer/BigCloud:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkxht"]
+_data = {
+&"RESET": SubResource("Animation_fkxht"),
+&"idle": SubResource("Animation_y60pb"),
+&"load_up": SubResource("Animation_orx1g")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8yer"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wugl"]
+
+[node name="LevelSelect" type="Control" unique_id=155562339]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_orx1g")
+
+[node name="LevelMenu" parent="." unique_id=1536824057 instance=ExtResource("2_jepxk")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1940648081]
+libraries/ = SubResource("AnimationLibrary_fkxht")
+autoplay = &"load_up"
+
+[node name="Background" type="TextureRect" parent="." unique_id=1297338457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bguu6")
+
+[node name="MapContainer" type="Control" parent="." unique_id=1903374920]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BigCloud" type="TextureRect" parent="MapContainer" unique_id=2022956842]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -505.0
+offset_top = -180.0
+offset_right = 300.00134
+offset_bottom = 255.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(402.501, 217.5)
+texture = ExtResource("11_y60pb")
+
+[node name="SmallCloud" type="TextureRect" parent="MapContainer" unique_id=1830461564]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -284.0
+offset_top = -166.0
+offset_right = 521.0
+offset_bottom = 269.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(402.5, 217.5)
+texture = ExtResource("12_824s3")
+
+[node name="Map" type="TextureRect" parent="MapContainer" unique_id=440498039]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1574.0
+offset_top = -1673.5
+offset_right = 1574.0
+offset_bottom = 1673.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(1574, 1673.5)
+texture = ExtResource("1_37jrt")
+
+[node name="Levels" type="Control" parent="MapContainer" unique_id=124619249]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = -18.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Level0" type="Control" parent="MapContainer/Levels" unique_id=945479286]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level0" unique_id=416108862]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = 309.99994
+offset_right = 30.0
+offset_bottom = 493.99994
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_leldv")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level0/TextureLevel" unique_id=337448418]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_h8yer")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h8yer")
+
+[node name="Tutorial" type="Control" parent="MapContainer/Levels/Level0" unique_id=1035898416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -942.0
+offset_top = -522.0
+offset_right = -942.0
+offset_bottom = -522.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="Label" type="Label" parent="MapContainer/Levels/Level0/Tutorial" unique_id=975588391]
+z_index = 1
+layout_mode = 0
+offset_left = 945.0
+offset_top = 581.0
+offset_right = 1883.0
+offset_bottom = 655.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("18_jctwp")
+theme_override_font_sizes/font_size = 60
+text = "Click on the level you want to play"
+
+[node name="Arrow" type="TextureRect" parent="MapContainer/Levels/Level0/Tutorial" unique_id=202240246]
+z_index = 1
+layout_mode = 0
+offset_left = 1270.0001
+offset_top = 759.0
+offset_right = 2387.0
+offset_bottom = 1066.0001
+rotation = 2.7246072
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("19_sbgtv")
+
+[node name="Level1" type="Control" parent="MapContainer/Levels" unique_id=635726566]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level1" unique_id=1850601653]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = 167.99997
+offset_right = 63.000015
+offset_bottom = 351.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("3_sis06")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level1/TextureLevel" unique_id=1262996493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wugl")
+
+[node name="Level2" type="Control" parent="MapContainer/Levels" unique_id=1295477544]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level2" unique_id=1147698298]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.999985
+offset_top = 135.99997
+offset_right = 253.0
+offset_bottom = 319.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("4_8wt4u")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level2/TextureLevel" unique_id=1332000128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wugl")
+
+[node name="Level3" type="Control" parent="MapContainer/Levels" unique_id=1277097208]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level3" unique_id=1183895543]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = 35.999977
+offset_right = -113.999985
+offset_bottom = 219.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("5_orx1g")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level3/TextureLevel" unique_id=2014669758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wugl")
+
+[node name="Level4" type="Control" parent="MapContainer/Levels" unique_id=1932503345]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level4" unique_id=1362872908]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.99997
+offset_top = 17.999977
+offset_right = 385.0
+offset_bottom = 201.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("6_fkxht")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level4/TextureLevel" unique_id=1947517984]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wugl")
+
+[node name="Level5" type="Control" parent="MapContainer/Levels" unique_id=161247442]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level5" unique_id=1459859658]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = -123.00001
+offset_right = -76.99997
+offset_bottom = 60.999992
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("7_y60pb")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level5/TextureLevel" unique_id=1204497761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wugl")
+
+[node name="Level6" type="Control" parent="MapContainer/Levels" unique_id=2095595014]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level6" unique_id=1958134293]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 67.99997
+offset_top = -158.0
+offset_right = 252.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("8_824s3")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level6/TextureLevel" unique_id=1718893323]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wugl")
+
+[node name="Level7" type="Control" parent="MapContainer/Levels" unique_id=150336475]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureLevel" type="TextureRect" parent="MapContainer/Levels/Level7" unique_id=123313466]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.000015
+offset_top = -275.00003
+offset_right = 98.000015
+offset_bottom = -91.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("9_57mg2")
+
+[node name="LevelButton" type="Button" parent="MapContainer/Levels/Level7/TextureLevel" unique_id=2005847130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8wugl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wugl")
+
+[node name="TutorialRect" type="ColorRect" parent="." unique_id=48532675]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="BackPlaceholder" type="Control" parent="." unique_id=382172771]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="Back" parent="BackPlaceholder" unique_id=403752032 instance=ExtResource("3_sbgtv")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 269.0
+grow_horizontal = 0
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(125.5, 133)
+mouse_behavior_recursive = 2
+icon = ExtResource("4_kxgkv")
+icon_default = ExtResource("4_kxgkv")
+icon_pressed = ExtResource("5_tbx44")
+offset = 8
+
+[connection signal="pressed" from="MapContainer/Levels/Level0/TextureLevel/LevelButton" to="." method="_on_level_button_pressed"]
+[connection signal="pressed" from="MapContainer/Levels/Level1/TextureLevel/LevelButton" to="." method="_on_level1_button_pressed"]
+[connection signal="pressed" from="MapContainer/Levels/Level2/TextureLevel/LevelButton" to="." method="_on_level2_button_pressed"]
+[connection signal="pressed" from="MapContainer/Levels/Level3/TextureLevel/LevelButton" to="." method="_on_level3_button_pressed"]
+[connection signal="pressed" from="MapContainer/Levels/Level4/TextureLevel/LevelButton" to="." method="_on_level4_button_pressed"]
+[connection signal="pressed" from="MapContainer/Levels/Level5/TextureLevel/LevelButton" to="." method="_on_level5_button_pressed"]
+[connection signal="pressed" from="MapContainer/Levels/Level6/TextureLevel/LevelButton" to="." method="_on_level6_button_pressed"]
+[connection signal="pressed" from="MapContainer/Levels/Level7/TextureLevel/LevelButton" to="." method="_on_level7_button_pressed"]
+[connection signal="pressed" from="BackPlaceholder/Back" to="." method="_on_back_pressed"]

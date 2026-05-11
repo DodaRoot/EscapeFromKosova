@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bwpt57j1bg88w"]
+
+[ext_resource type="Texture2D" uid="uid://dtl1ju8k0brf6" path="res://Assets/Tiles/Entities/Box.png" id="1_aa0yw"]
+[ext_resource type="Script" uid="uid://cdgfbarhhyxju" path="res://Scripts/object.gd" id="1_x4b04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi5rd"]
+size = Vector2(91, 92)
+
+[node name="Box" type="RigidBody2D" unique_id=1978776797 groups=["Objects"]]
+angular_damp = 20.0
+script = ExtResource("1_x4b04")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1967621808]
+scale = Vector2(0.6621622, 0.6621622)
+texture = ExtResource("1_aa0yw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162456286]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_pi5rd")

@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://ch7iu57m4bklx"]
+
+[ext_resource type="Script" uid="uid://bt8wywmnoww31" path="res://Scripts/sniper.gd" id="1_hvjog"]
+[ext_resource type="Texture2D" uid="uid://c1bhvj66vxvnv" path="res://Assets/Guns/Guns/Sniper.png" id="2_eir35"]
+[ext_resource type="Texture2D" uid="uid://bm8yhyw1j5vcm" path="res://Assets/Characters/Clothing/SceneClothing/Ordinary/RightHand.png" id="3_0rsdr"]
+[ext_resource type="AudioStream" uid="uid://r18ofs8xurhq" path="res://Assets/Audio/Guns/Sniper.mp3" id="4_0rsdr"]
+[ext_resource type="Texture2D" uid="uid://c3bh4x5pxx5fs" path="res://Assets/Backgrounds/Effects/Explosion.png" id="4_4qdul"]
+[ext_resource type="AudioStream" uid="uid://cm7vltsmrx1ja" path="res://Assets/Audio/Guns/Reload.mp3" id="5_4qdul"]
+
+[sub_resource type="Gradient" id="Gradient_hvjog"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_eir35"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(86, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_hvjog"]
+resource_name = "reload"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75, 1.125, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3490658503988659, 0.3490658503988659, 0.34906584, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.75, 1.15, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(86, -6), Vector2(51.999996, -12), Vector2(8.999992, -12), Vector2(47, -12), Vector2(86, -6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rsdr"]
+_data = {
+&"RESET": SubResource("Animation_eir35"),
+&"reload": SubResource("Animation_hvjog")
+}
+
+[sub_resource type="Gradient" id="Gradient_eir35"]
+offsets = PackedFloat32Array(0, 0.2)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0rsdr"]
+gradient = SubResource("Gradient_eir35")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obv4y"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(0, 0, 28, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0xmh"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(0, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s78ge"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(141, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bojn"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(282, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcutt"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(0, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15x0r"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(141, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on7su"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(282, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haphe"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(0, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enpyh"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(141, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48o3g"]
+atlas = ExtResource("4_4qdul")
+region = Rect2(282, 266, 141, 133)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6weu4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0xmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s78ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bojn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcutt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15x0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on7su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haphe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enpyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48o3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 70.0
+}]
+
+[node name="Sniper" type="Node2D" unique_id=2014779581]
+script = ExtResource("1_hvjog")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1026166901]
+position = Vector2(183.4065, -15.593506)
+
+[node name="Sniper" type="Sprite2D" parent="." unique_id=571226507]
+z_index = 1
+position = Vector2(54.406494, -11.593506)
+texture = ExtResource("2_eir35")
+
+[node name="RightHand" type="Sprite2D" parent="." unique_id=1498537192]
+z_index = 2
+position = Vector2(86, -6)
+texture = ExtResource("3_0rsdr")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=283525277]
+position = Vector2(183.4065, -15.593506)
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 600.0
+scale_amount_min = 4.0
+scale_amount_max = 7.0
+color = Color(1, 0.3882353, 0, 1)
+color_ramp = SubResource("Gradient_hvjog")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=480154666]
+libraries/ = SubResource("AnimationLibrary_0rsdr")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=342332985]
+position = Vector2(183.40651, -16.59351)
+scale = Vector2(5.632813, 5.632813)
+color = Color(1, 0.30588236, 0.078431375, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_0rsdr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=307239298]
+z_index = 1
+position = Vector2(184, -16)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_6weu4")
+animation = &"shoot"
+frame = 10
+frame_progress = 1.0
+
+[node name="Audio" type="Node" parent="." unique_id=399509597]
+
+[node name="Audio_SNIPERSHOT" type="AudioStreamPlayer" parent="Audio" unique_id=495464944]
+stream = ExtResource("4_0rsdr")
+bus = &"SFX"
+
+[node name="Audio_RELOAD" type="AudioStreamPlayer" parent="Audio" unique_id=585815608]
+stream = ExtResource("5_4qdul")
+bus = &"SFX"

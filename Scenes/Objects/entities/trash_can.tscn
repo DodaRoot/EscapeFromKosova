@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://kmmnop0s2mki"]
+
+[ext_resource type="Script" uid="uid://cdgfbarhhyxju" path="res://Scripts/object.gd" id="1_6odry"]
+[ext_resource type="Texture2D" uid="uid://c0d4rroehmmes" path="res://Assets/Tiles/Entities/TrashCan.png" id="1_n7yrl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qigsl"]
+size = Vector2(73.33333, 101.66667)
+
+[node name="TrashCan" type="RigidBody2D" unique_id=1536736035 groups=["Objects"]]
+angular_damp = 20.0
+script = ExtResource("1_6odry")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=207812041]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("1_n7yrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=100243211]
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_qigsl")

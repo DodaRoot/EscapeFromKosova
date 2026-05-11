@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dt3kjyv3b4ot4"]
+
+[ext_resource type="Script" uid="uid://bamsuu4p2yhcv" path="res://Scripts/win_area.gd" id="1_xqx0l"]
+[ext_resource type="Texture2D" uid="uid://bngfaliveoiam" path="res://Assets/Tiles/Entities/Jeep.png" id="2_nwbhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ravqx"]
+size = Vector2(146, 1006.5)
+
+[node name="WinArea" type="Area2D" unique_id=765361942 groups=["WorldItems"]]
+script = ExtResource("1_xqx0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758146030 groups=["WorldItems"]]
+position = Vector2(-273, -394)
+shape = SubResource("RectangleShape2D_ravqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=342622799]
+scale = Vector2(3, 3)
+texture = ExtResource("2_nwbhr")
+flip_h = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

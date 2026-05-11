@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://biwq56nlwo40u"]
+
+[ext_resource type="Script" uid="uid://beusk85l4ep6v" path="res://Scripts/main_menu.gd" id="1_b7svq"]
+[ext_resource type="FontFile" uid="uid://d06ttucjn2sce" path="res://Assets/Fonts/Kaph_Font_1_20/TrueType (.ttf)/Kaph-Regular.ttf" id="2_5wi6m"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b7svq")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autoplay = true
+expand = true
+loop = true
+
+[node name="Heading" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -724.0
+offset_top = 85.0
+offset_right = 727.0
+offset_bottom = 222.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Heading"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.50980395, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.10980392, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5wi6m")
+theme_override_font_sizes/font_size = 100
+text = "Escape From Kosova"
+
+[node name="Body" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -848.0
+offset_right = -24.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(2459, 181)
+theme_override_constants/separation = 4
+
+[node name="LeftContainer" type="VBoxContainer" parent="Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="VBoxContainer" parent="Body"]
+layout_mode = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Body"]
+layout_mode = 2

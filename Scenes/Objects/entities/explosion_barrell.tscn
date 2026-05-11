@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ch7srayp2ai2u"]
+
+[ext_resource type="Script" uid="uid://cbk61xt04uko2" path="res://Scripts/explosion_barrell.gd" id="1_b7dmu"]
+[ext_resource type="Texture2D" uid="uid://r85k7d0yx6nd" path="res://Assets/Tiles/Entities/ExplosionBarrell.png" id="1_hnwbb"]
+[ext_resource type="AudioStream" uid="uid://d15srtt22rih5" path="res://Assets/Audio/Entities/ExplosionBig.mp3" id="3_nw6pf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnwbb"]
+radius = 244.01457
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qigsl"]
+size = Vector2(72.666664, 103)
+
+[sub_resource type="Gradient" id="Gradient_b7dmu"]
+colors = PackedColorArray(1, 0.5764706, 0, 1, 1, 1, 1, 0)
+
+[node name="ExplosionBarrell" type="RigidBody2D" unique_id=1503896956 groups=["Enemy"]]
+angular_damp = 20.0
+script = ExtResource("1_b7dmu")
+
+[node name="Barrell" type="Sprite2D" parent="." unique_id=1838925267]
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("1_hnwbb")
+
+[node name="BlastArea" type="Area2D" parent="." unique_id=792600124 groups=["WorldItems"]]
+scale = Vector2(1.5, 1.5)
+
+[node name="BlastRadius" type="CollisionShape2D" parent="BlastArea" unique_id=1037841564]
+shape = SubResource("CircleShape2D_hnwbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150799583]
+position = Vector2(0.60000086, 0.8000001)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_qigsl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1477781107]
+emitting = false
+amount = 80
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 700.0
+initial_velocity_max = 1000.0
+scale_amount_min = 15.0
+scale_amount_max = 20.0
+color = Color(1, 0.5764706, 0, 1)
+color_ramp = SubResource("Gradient_b7dmu")
+
+[node name="Audio_EXPLOSION" type="AudioStreamPlayer" parent="." unique_id=1041396857]
+stream = ExtResource("3_nw6pf")
+bus = &"SFX"

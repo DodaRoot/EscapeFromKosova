@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c1mof8gpqmhb5"]
+
+[ext_resource type="Script" uid="uid://bivgjoysetb66" path="res://Scripts/heli_rocket.gd" id="1_l6c1o"]
+[ext_resource type="Texture2D" uid="uid://f5y6163qds2d" path="res://Assets/Guns/Bullets/HeliRocket.png" id="1_tls1k"]
+[ext_resource type="Texture2D" uid="uid://cej4epdq1cj6o" path="res://Assets/Backgrounds/Effects/BulletHitFrames.png" id="2_p1ivu"]
+[ext_resource type="AudioStream" uid="uid://c1mga04hqq6ku" path="res://Assets/Audio/Bullet/RocketWhoosh.mp3" id="3_38m0k"]
+[ext_resource type="AudioStream" uid="uid://d15srtt22rih5" path="res://Assets/Audio/Entities/ExplosionBig.mp3" id="4_p1ivu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70mdu"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(150, 0, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ng5"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(300, 0, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ximks"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(0, 141, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afp7f"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(150, 141, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn0nt"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(300, 141, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8sgb"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(0, 282, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdso5"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(150, 282, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy2t6"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(300, 282, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frixp"]
+atlas = ExtResource("2_p1ivu")
+region = Rect2(0, 0, 150, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1ivu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70mdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ng5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ximks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afp7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn0nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8sgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdso5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy2t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frixp")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tls1k"]
+size = Vector2(45, 172)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6c1o"]
+radius = 175.0784
+
+[sub_resource type="Gradient" id="Gradient_l6c1o"]
+colors = PackedColorArray(1, 0.5764706, 0, 1, 1, 1, 1, 0)
+
+[node name="Heli_Rocket" type="RigidBody2D" unique_id=532814638]
+mass = 20.0
+script = ExtResource("1_l6c1o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=350440552]
+texture = ExtResource("1_tls1k")
+flip_v = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2001086810]
+z_index = 2
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_p1ivu")
+animation = &"hit"
+frame = 8
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030133354]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_tls1k")
+
+[node name="BlastArea" type="Area2D" parent="." unique_id=858760052 groups=["WorldItems"]]
+scale = Vector2(1.5, 1.5)
+
+[node name="BlastRadius" type="CollisionShape2D" parent="BlastArea" unique_id=1920482532]
+shape = SubResource("CircleShape2D_l6c1o")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=420967046]
+emitting = false
+amount = 60
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector2(-1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 1000.0
+scale_amount_min = 9.0
+scale_amount_max = 20.0
+color = Color(1, 0.6313726, 0, 1)
+color_ramp = SubResource("Gradient_l6c1o")
+
+[node name="Audio" type="Node" parent="." unique_id=976502330]
+
+[node name="Audio_ROCKETLAUNCH" type="AudioStreamPlayer" parent="Audio" unique_id=1237250104]
+stream = ExtResource("3_38m0k")
+
+[node name="Audio_ROCKETEXPLODE" type="AudioStreamPlayer" parent="Audio" unique_id=486728760]
+stream = ExtResource("4_p1ivu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

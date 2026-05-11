@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://cit62vwdychq5"]
+
+[ext_resource type="Script" uid="uid://rofl2c35k3g0" path="res://Scripts/glock.gd" id="1_ds2nm"]
+[ext_resource type="Texture2D" uid="uid://dtjw3vlt2x0sa" path="res://Assets/Guns/Guns/Pistol.png" id="2_l4m6w"]
+[ext_resource type="Texture2D" uid="uid://bm8yhyw1j5vcm" path="res://Assets/Characters/Clothing/SceneClothing/Ordinary/RightHand.png" id="3_5ivh8"]
+[ext_resource type="AudioStream" uid="uid://bqf2fchfs6pr8" path="res://Assets/Audio/Guns/PistolShot.mp3" id="4_5ivh8"]
+[ext_resource type="Texture2D" uid="uid://c3bh4x5pxx5fs" path="res://Assets/Backgrounds/Effects/Explosion.png" id="4_ws2hc"]
+[ext_resource type="AudioStream" uid="uid://cm7vltsmrx1ja" path="res://Assets/Audio/Guns/Reload.mp3" id="5_q4dum"]
+
+[sub_resource type="Gradient" id="Gradient_l4m6w"]
+offsets = PackedFloat32Array(0, 0.2)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ivh8"]
+gradient = SubResource("Gradient_l4m6w")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_ws2hc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obv4y"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(0, 0, 28, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0xmh"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(0, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s78ge"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(141, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bojn"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(282, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcutt"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(0, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15x0r"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(141, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on7su"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(282, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haphe"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(0, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enpyh"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(141, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48o3g"]
+atlas = ExtResource("4_ws2hc")
+region = Rect2(282, 266, 141, 133)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfm6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0xmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s78ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bojn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcutt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15x0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on7su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haphe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enpyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48o3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 70.0
+}]
+
+[node name="Glock" type="Node2D" unique_id=1219977876]
+script = ExtResource("1_ds2nm")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1556117590]
+position = Vector2(32, -13)
+
+[node name="Pistol" type="Sprite2D" parent="." unique_id=1969142128]
+z_index = 1
+position = Vector2(1, 4)
+texture = ExtResource("2_l4m6w")
+
+[node name="RightHand" type="Sprite2D" parent="." unique_id=1397036389]
+z_index = 2
+position = Vector2(-12.999999, 26.999996)
+rotation = -0.33016008
+texture = ExtResource("3_5ivh8")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=453511784]
+position = Vector2(34.000004, -13.000001)
+scale = Vector2(5.632813, 5.632813)
+color = Color(1, 0.30588236, 0.078431375, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_5ivh8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1788077842]
+position = Vector2(34, -11.593506)
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 600.0
+scale_amount_min = 4.0
+scale_amount_max = 7.0
+color = Color(1, 0.3882353, 0, 1)
+color_ramp = SubResource("Gradient_ws2hc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2084713137]
+z_index = 1
+position = Vector2(38, -12)
+rotation = -1.5707964
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_hfm6l")
+animation = &"shoot"
+frame = 10
+frame_progress = 1.0
+
+[node name="Audio" type="Node" parent="." unique_id=1163983349]
+
+[node name="Audio_PISTOLSHOT" type="AudioStreamPlayer" parent="Audio" unique_id=774667051]
+stream = ExtResource("4_5ivh8")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Audio_RELOAD" type="AudioStreamPlayer" parent="Audio" unique_id=922574475]
+stream = ExtResource("5_q4dum")
+volume_db = 5.0
+bus = &"SFX"

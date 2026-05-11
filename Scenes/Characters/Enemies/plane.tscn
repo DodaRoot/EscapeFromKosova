@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://jm75di3tkv"]
+
+[ext_resource type="Texture2D" uid="uid://ckljs6u4kbdjp" path="res://Assets/Tiles/Entities/FlyingPlane.png" id="1_2gaoq"]
+[ext_resource type="Script" uid="uid://cqftcaxvn6w6c" path="res://Scripts/plane.gd" id="1_ergsd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2gaoq"]
+radius = 47.0
+height = 890.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ergsd"]
+size = Vector2(51.96173, 5.3506436)
+
+[node name="Plane" type="RigidBody2D" unique_id=503822707 node_paths=PackedStringArray("muzzle")]
+gravity_scale = 0.0
+script = ExtResource("1_ergsd")
+muzzle = NodePath("Muzzle")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=125465541]
+rotation = -0.06699404
+scale = Vector2(3, 3)
+texture = ExtResource("1_2gaoq")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=224832228]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2gaoq")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1009594437]
+position = Vector2(0, 152)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1939432567]
+rect = Rect2(-409, -169, 820, 274)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1402281779]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=913270992 groups=["WorldItems"]]
+position = Vector2(2003.4719, 621)
+rotation = -3.1415925
+scale = Vector2(3.0225332, -231.00023)
+shape = SubResource("RectangleShape2D_ergsd")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

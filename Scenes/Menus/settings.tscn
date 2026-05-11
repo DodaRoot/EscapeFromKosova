@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://b3l4o8nwu54jg"]
+
+[ext_resource type="Script" uid="uid://biiy5hma0nkcl" path="res://Scripts/settings.gd" id="1_cak1x"]
+[ext_resource type="Texture2D" uid="uid://b5sugrqop2wht" path="res://Assets/UI/MenuItems/SettingsTable.png" id="1_cl26u"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="2_0hoxr"]
+[ext_resource type="Texture2D" uid="uid://cq02k1t6du0oq" path="res://Assets/Backgrounds/BackgroundForSettings.png" id="2_3drsn"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="2_ks0yy"]
+[ext_resource type="Texture2D" uid="uid://bxu5ees84qk0l" path="res://Assets/UI/MenuItems/VolumeBar.png" id="2_pitel"]
+[ext_resource type="Texture2D" uid="uid://b6ue3j3changq" path="res://Assets/UI/Buttons/Arrow_Default.png" id="3_0hoxr"]
+[ext_resource type="Texture2D" uid="uid://c8ji6mnb5h8kl" path="res://Assets/UI/MenuItems/VolumeBarFilled.png" id="4_gmfi3"]
+[ext_resource type="Texture2D" uid="uid://ba1syvhgayjrs" path="res://Assets/UI/Buttons/Arrow_Pressed.png" id="4_pitel"]
+[ext_resource type="Texture2D" uid="uid://7p708rr8ksh7" path="res://Assets/UI/MenuItems/VolumeBarHandle.png" id="5_cak1x"]
+[ext_resource type="AudioStream" uid="uid://dxeecp3m3bt76" path="res://Assets/Audio/Entities/ButtonClick2.mp3" id="5_gmfi3"]
+[ext_resource type="Texture2D" uid="uid://dhuqnrssgqg3j" path="res://Assets/UI/MenuItems/OffButton.png" id="8_oxqff"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmfi3"]
+texture = ExtResource("2_pitel")
+texture_margin_left = 50.0
+texture_margin_top = 40.0
+texture_margin_right = 50.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cak1x"]
+texture = ExtResource("4_gmfi3")
+texture_margin_left = 50.0
+texture_margin_top = 40.0
+texture_margin_right = 50.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="GDScript" id="GDScript_gmfi3"]
+
+[node name="Settings" type="Control" unique_id=353917928]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_cak1x")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1437073754]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3drsn")
+
+[node name="DefaultMenu" type="TextureRect" parent="." unique_id=1976234562]
+custom_minimum_size = Vector2(700, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -450.0
+offset_right = 500.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cl26u")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DefaultMenu" unique_id=1489275782]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 73.00004
+offset_top = 165.0
+offset_right = -69.99994
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="DefaultMenu/ScrollContainer" unique_id=1376782364]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 1
+
+[node name="SettingContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/Container" unique_id=1887655172]
+layout_mode = 2
+
+[node name="LabelMaster" type="Label" parent="DefaultMenu/ScrollContainer/Container/SettingContainer" unique_id=1550521590]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 14
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_0hoxr")
+theme_override_font_sizes/font_size = 80
+text = "Master Volume"
+
+[node name="VolumeSliderMaster" type="HSlider" parent="DefaultMenu/ScrollContainer/Container/SettingContainer" unique_id=439896205]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("5_cak1x")
+theme_override_icons/grabber_highlight = ExtResource("5_cak1x")
+theme_override_icons/grabber_disabled = ExtResource("5_cak1x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_gmfi3")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_cak1x")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_cak1x")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = SubResource("GDScript_gmfi3")
+
+[node name="SettingContainer2" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/Container" unique_id=1839802710]
+layout_mode = 2
+
+[node name="LabelMusic" type="Label" parent="DefaultMenu/ScrollContainer/Container/SettingContainer2" unique_id=21348853]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 14
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_0hoxr")
+theme_override_font_sizes/font_size = 80
+text = "Music Volume"
+
+[node name="VolumeSliderMusic" type="HSlider" parent="DefaultMenu/ScrollContainer/Container/SettingContainer2" unique_id=1540216833]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("5_cak1x")
+theme_override_icons/grabber_highlight = ExtResource("5_cak1x")
+theme_override_icons/grabber_disabled = ExtResource("5_cak1x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_gmfi3")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_cak1x")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_cak1x")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = SubResource("GDScript_gmfi3")
+
+[node name="SettingContainer3" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/Container" unique_id=1693658063]
+layout_mode = 2
+
+[node name="LabelSFX" type="Label" parent="DefaultMenu/ScrollContainer/Container/SettingContainer3" unique_id=1577316997]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 14
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_0hoxr")
+theme_override_font_sizes/font_size = 80
+text = "SFX Volume"
+
+[node name="VolumeSliderSFX" type="HSlider" parent="DefaultMenu/ScrollContainer/Container/SettingContainer3" unique_id=1921961649]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("5_cak1x")
+theme_override_icons/grabber_highlight = ExtResource("5_cak1x")
+theme_override_icons/grabber_disabled = ExtResource("5_cak1x")
+theme_override_styles/slider = SubResource("StyleBoxTexture_gmfi3")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_cak1x")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_cak1x")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = SubResource("GDScript_gmfi3")
+
+[node name="SettingContainer4" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/Container" unique_id=883888539]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="LabelDEV" type="Label" parent="DefaultMenu/ScrollContainer/Container/SettingContainer4" unique_id=1101637518]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 14
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_0hoxr")
+theme_override_font_sizes/font_size = 80
+text = "FPS Counter"
+
+[node name="Button" parent="DefaultMenu/ScrollContainer/Container/SettingContainer4" unique_id=2108069336 instance=ExtResource("2_ks0yy")]
+custom_minimum_size = Vector2(300, 130)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+icon = ExtResource("8_oxqff")
+alignment = 2
+icon_alignment = 2
+expand_icon = true
+icon_default = ExtResource("8_oxqff")
+icon_pressed = ExtResource("8_oxqff")
+offset = 0
+
+[node name="Label" type="Label" parent="DefaultMenu" unique_id=2135823607]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -449.0
+offset_right = 193.0
+offset_bottom = -339.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_0hoxr")
+theme_override_font_sizes/font_size = 90
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="BackPlaceholder" type="Control" parent="." unique_id=755600408]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="Back" parent="BackPlaceholder" unique_id=384258438 instance=ExtResource("2_ks0yy")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 269.0
+grow_horizontal = 0
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(125.5, 133)
+mouse_behavior_recursive = 2
+icon = ExtResource("3_0hoxr")
+icon_default = ExtResource("3_0hoxr")
+icon_pressed = ExtResource("4_pitel")
+offset = 8
+click_sound = ExtResource("5_gmfi3")
+
+[connection signal="value_changed" from="DefaultMenu/ScrollContainer/Container/SettingContainer/VolumeSliderMaster" to="." method="_on_volume_slider_master_value_changed"]
+[connection signal="value_changed" from="DefaultMenu/ScrollContainer/Container/SettingContainer2/VolumeSliderMusic" to="." method="_on_volume_slider_music_value_changed"]
+[connection signal="value_changed" from="DefaultMenu/ScrollContainer/Container/SettingContainer3/VolumeSliderSFX" to="." method="_on_volume_slider_sfx_value_changed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/Container/SettingContainer4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BackPlaceholder/Back" to="." method="_on_back_pressed"]

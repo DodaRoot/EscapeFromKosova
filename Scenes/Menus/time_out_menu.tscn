@@ -1,0 +1,384 @@
+[gd_scene format=3 uid="uid://bkttg0pjotjgt"]
+
+[ext_resource type="Script" uid="uid://depqar2d3x0kv" path="res://Scripts/time_out_menu.gd" id="1_ssg8e"]
+[ext_resource type="Shader" uid="uid://fn1veen2sqxd" path="res://Assets/Shaders/pause_menu.gdshader" id="2_dnm0n"]
+[ext_resource type="Texture2D" uid="uid://cfq3s0qn0a4gj" path="res://Assets/UI/MenuItems/DropMenu2.png" id="3_3f1li"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="4_ao1jt"]
+[ext_resource type="Texture2D" uid="uid://wk8dhbjjshtp" path="res://Assets/UI/MenuItems/Money.png" id="6_qupve"]
+[ext_resource type="Texture2D" uid="uid://cjre7fohw8wmo" path="res://Assets/UI/MenuItems/Clock.png" id="7_54qvl"]
+[ext_resource type="Texture2D" uid="uid://bwjqay58q8x3j" path="res://Assets/UI/MenuItems/Crossair.png" id="8_8t20v"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="8_f6yil"]
+[ext_resource type="Texture2D" uid="uid://cy245h50sjb5w" path="res://Assets/UI/Buttons/Button_Default.png" id="9_w4utn"]
+[ext_resource type="Texture2D" uid="uid://dx6erk41kbk6n" path="res://Assets/UI/Buttons/Button_Pressed.png" id="10_hjmwk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h66i6"]
+shader = ExtResource("2_dnm0n")
+shader_parameter/blur_strength = 0.0
+
+[sub_resource type="Animation" id="Animation_7smr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blur_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/DropMenu:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(765, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pw12o"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blur_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 4.00000019]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/DropMenu:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(765, 0), Vector2(765, 3600), Vector2(765, 2800)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nwnlq"]
+_data = {
+&"RESET": SubResource("Animation_7smr3"),
+&"blur": SubResource("Animation_pw12o")
+}
+
+[node name="TimeOutMenu" type="CanvasLayer" unique_id=1881162510]
+process_mode = 3
+script = ExtResource("1_ssg8e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=204721250]
+material = SubResource("ShaderMaterial_h66i6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Container" type="Control" parent="." unique_id=689255853]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="DropMenu" type="TextureRect" parent="Container" unique_id=886533541]
+process_mode = 3
+custom_minimum_size = Vector2(750, 750)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -765.0
+offset_top = -3021.0
+offset_right = 765.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.45, 0.45)
+pivot_offset = Vector2(765, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("3_3f1li")
+
+[node name="Title" type="Label" parent="Container/DropMenu" unique_id=1937742142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -651.1111
+offset_top = -292.72205
+offset_right = 422.88892
+offset_bottom = -109.722046
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 150
+text = "No time left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeIcon" type="Sprite2D" parent="Container/DropMenu/Title" unique_id=780912757]
+position = Vector2(1068.889, 95.555664)
+scale = Vector2(0.6853049, 0.6853049)
+texture = ExtResource("7_54qvl")
+
+[node name="InfoContainer" type="Control" parent="Container/DropMenu" unique_id=1319399947]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 211.72229
+offset_right = -40.0
+offset_bottom = 211.72229
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="TextContainer" type="Control" parent="Container/DropMenu/InfoContainer" unique_id=1332070999]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.44446
+offset_top = -179.9996
+offset_right = -524.44446
+offset_bottom = -179.9996
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemiesDefeated" type="Label" parent="Container/DropMenu/InfoContainer/TextContainer" unique_id=538466971]
+layout_mode = 0
+offset_top = -13.0
+offset_right = 663.0
+offset_bottom = 84.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 80
+text = "Enemies defeated:"
+vertical_alignment = 1
+
+[node name="MoneyMade" type="Label" parent="Container/DropMenu/InfoContainer/TextContainer" unique_id=1822811261]
+layout_mode = 0
+offset_left = 5.340576e-05
+offset_top = 77.77783
+offset_right = 493.00006
+offset_bottom = 174.77783
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 80
+text = "Money Made: "
+vertical_alignment = 1
+
+[node name="TimeRanOut" type="Label" parent="Container/DropMenu/InfoContainer/TextContainer" unique_id=1488640719]
+layout_mode = 0
+offset_left = 2.2222595
+offset_top = 177.77734
+offset_right = 1141.0
+offset_bottom = 393.33252
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 80
+text = "You ran out of time to complete this level"
+autowrap_mode = 2
+
+[node name="ValuesContainer" type="Control" parent="Container/DropMenu/InfoContainer" unique_id=1998769754]
+anchors_preset = 0
+offset_left = -11.111112
+offset_right = -11.111112
+
+[node name="EnemiesDefeatedValue" type="Label" parent="Container/DropMenu/InfoContainer/ValuesContainer" unique_id=879049610]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 215.55554
+offset_top = -193.333
+offset_right = 541.44446
+offset_bottom = -96.33299
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 80
+text = "15"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MoneyMadeValue" type="Label" parent="Container/DropMenu/InfoContainer/ValuesContainer" unique_id=1402867808]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 71.11124
+offset_top = -102.221756
+offset_right = 542.66675
+offset_bottom = -5.221756
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.78431374)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 80
+text = "156"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MoneyIcon" type="Sprite2D" parent="Container/DropMenu/InfoContainer/ValuesContainer" unique_id=967688589]
+position = Vector2(588.88885, -51.110733)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_qupve")
+
+[node name="EnemiesIcon" type="Sprite2D" parent="Container/DropMenu/InfoContainer/ValuesContainer" unique_id=453886477]
+position = Vector2(593.33344, -144.44398)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_8t20v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/DropMenu" unique_id=373209860]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.5
+offset_top = 509.9967
+offset_right = 377.5
+offset_bottom = 1276.9966
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Options" parent="Container/DropMenu/VBoxContainer" unique_id=1379572901 instance=ExtResource("8_f6yil")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("9_w4utn")
+icon_default = ExtResource("9_w4utn")
+icon_pressed = ExtResource("10_hjmwk")
+
+[node name="ButtonText" type="Label" parent="Container/DropMenu/VBoxContainer/Options" unique_id=583035179]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 150
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Menu" parent="Container/DropMenu/VBoxContainer" unique_id=1432106980 instance=ExtResource("8_f6yil")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("9_w4utn")
+icon_default = ExtResource("9_w4utn")
+icon_pressed = ExtResource("10_hjmwk")
+
+[node name="ButtonText" type="Label" parent="Container/DropMenu/VBoxContainer/Menu" unique_id=1977795524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 150
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="Restart" parent="Container/DropMenu/VBoxContainer" unique_id=55847807 instance=ExtResource("8_f6yil")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("9_w4utn")
+icon_default = ExtResource("9_w4utn")
+icon_pressed = ExtResource("10_hjmwk")
+
+[node name="ButtonText" type="Label" parent="Container/DropMenu/VBoxContainer/Restart" unique_id=456803572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_ao1jt")
+theme_override_font_sizes/font_size = 150
+text = "Restart"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=370239167]
+libraries/ = SubResource("AnimationLibrary_nwnlq")
+
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

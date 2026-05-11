@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://cuf13jvqx2x1f"]
+
+[ext_resource type="Script" uid="uid://dqa4n127no04a" path="res://Scripts/bullet.gd" id="1_hp1pf"]
+[ext_resource type="Texture2D" uid="uid://bbwpdh880gv0v" path="res://Assets/Guns/Bullets/SniperBullet.png" id="2_clai3"]
+[ext_resource type="Texture2D" uid="uid://cej4epdq1cj6o" path="res://Assets/Backgrounds/Effects/BulletHitFrames.png" id="2_nkenj"]
+[ext_resource type="AudioStream" uid="uid://cuayklshgdhso" path="res://Assets/Audio/Bullet/BulletHitGround1.mp3" id="3_vvkt4"]
+[ext_resource type="Texture2D" uid="uid://ws4u34tjl45i" path="res://Assets/Backgrounds/Effects/BloodStain1.png" id="3_wqcav"]
+[ext_resource type="AudioStream" uid="uid://5ydak4ohuyof" path="res://Assets/Audio/Bullet/BulletHitFlesh.mp3" id="4_nkenj"]
+[ext_resource type="Texture2D" uid="uid://4ypkkr54aijq" path="res://Assets/Backgrounds/Effects/BloodStain2.png" id="4_rpguh"]
+[ext_resource type="Texture2D" uid="uid://dl0w86w6ns1wb" path="res://Assets/Backgrounds/Effects/BloodStain3.png" id="5_6i0j1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfmjj"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(0, 0, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlx14"]
+atlas = ExtResource("3_wqcav")
+region = Rect2(0, 0, 136, 137)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc4d3"]
+atlas = ExtResource("4_rpguh")
+region = Rect2(0, 0, 137, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chxaw"]
+atlas = ExtResource("5_6i0j1")
+region = Rect2(0, 0, 120, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70mdu"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(150, 0, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ng5"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(300, 0, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ximks"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(0, 141, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afp7f"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(150, 141, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn0nt"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(300, 141, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8sgb"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(0, 282, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdso5"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(150, 282, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy2t6"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(300, 282, 150, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frixp"]
+atlas = ExtResource("2_nkenj")
+region = Rect2(0, 0, 150, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5s8yg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfmjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlx14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc4d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chxaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfmjj")
+}],
+"loop": false,
+"name": &"blood",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70mdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ng5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ximks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afp7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn0nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8sgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdso5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy2t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frixp")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvsuj"]
+size = Vector2(14, 4)
+
+[sub_resource type="Gradient" id="Gradient_hp1pf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="SniperBullet" type="Node2D" unique_id=811333105 groups=["Bullets"]]
+light_mask = 2
+visibility_layer = 2
+z_index = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_hp1pf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=901233703]
+z_index = 2
+rotation = 1.5707964
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_5s8yg")
+animation = &"blood"
+frame = 4
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=337433040 groups=["Bullets"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1499769124 groups=["Bullets"]]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_cvsuj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=514957535]
+position = Vector2(-4, 0)
+rect = Rect2(-10, -5, 26, 10)
+
+[node name="Bullet" type="Sprite2D" parent="." unique_id=722565267]
+position = Vector2(-0.5000001, 2.9802322e-08)
+scale = Vector2(0.9130436, 0.8333334)
+texture = ExtResource("2_clai3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1278673602]
+emitting = false
+amount = 15
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 1000.0
+scale_amount_min = 6.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_hp1pf")
+
+[node name="Audio" type="Node" parent="." unique_id=1441611884]
+
+[node name="Audio_BULLETHITGROUND" type="AudioStreamPlayer" parent="Audio" unique_id=399541369]
+stream = ExtResource("3_vvkt4")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Audio_BULLETHITFLESH" type="AudioStreamPlayer" parent="Audio" unique_id=1113191250]
+stream = ExtResource("4_nkenj")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://m37xwaslnc4e"]
+
+[ext_resource type="Script" uid="uid://dg8ybrj1s6bsd" path="res://Scripts/pause_menu.gd" id="1_yeo1y"]
+[ext_resource type="Shader" uid="uid://fn1veen2sqxd" path="res://Assets/Shaders/pause_menu.gdshader" id="2_pw12o"]
+[ext_resource type="Texture2D" uid="uid://uusv3ke1y503" path="res://Assets/UI/MenuItems/DropMenu.png" id="3_yeo1y"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="4_pw12o"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="5_nwnlq"]
+[ext_resource type="Texture2D" uid="uid://cy245h50sjb5w" path="res://Assets/UI/Buttons/Button_Default.png" id="6_8kr8e"]
+[ext_resource type="Texture2D" uid="uid://dx6erk41kbk6n" path="res://Assets/UI/Buttons/Button_Pressed.png" id="7_cnjyl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7smr3"]
+shader = ExtResource("2_pw12o")
+shader_parameter/blur_strength = 0.0
+
+[sub_resource type="Animation" id="Animation_7smr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blur_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/DropMenu:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(765, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pw12o"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/blur_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 4.00000019]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/DropMenu:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(765, 0), Vector2(765, 3600), Vector2(765, 2800)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nwnlq"]
+_data = {
+&"RESET": SubResource("Animation_7smr3"),
+&"blur": SubResource("Animation_pw12o")
+}
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1734352364]
+process_mode = 3
+script = ExtResource("1_yeo1y")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=907241045]
+material = SubResource("ShaderMaterial_7smr3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Container" type="Control" parent="." unique_id=2108405789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="DropMenu" type="TextureRect" parent="Container" unique_id=1539535587]
+process_mode = 3
+custom_minimum_size = Vector2(750, 750)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -765.0
+offset_top = -3021.0
+offset_right = 765.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.45, 0.45)
+pivot_offset = Vector2(765, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("3_yeo1y")
+
+[node name="Title" type="Label" parent="Container/DropMenu" unique_id=1612150987]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -537.0
+offset_top = -197.0
+offset_right = 537.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("4_pw12o")
+theme_override_font_sizes/font_size = 150
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/DropMenu" unique_id=469459170]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.5
+offset_top = 163.33325
+offset_right = 377.5
+offset_bottom = 1209.3333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Resume" parent="Container/DropMenu/VBoxContainer" unique_id=2072136660 instance=ExtResource("5_nwnlq")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("6_8kr8e")
+icon_default = ExtResource("6_8kr8e")
+icon_pressed = ExtResource("7_cnjyl")
+
+[node name="ButtonText" type="Label" parent="Container/DropMenu/VBoxContainer/Resume" unique_id=1925441329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_pw12o")
+theme_override_font_sizes/font_size = 150
+text = "Resume"
+horizontal_alignment = 1
+
+[node name="Options" parent="Container/DropMenu/VBoxContainer" unique_id=657766678 instance=ExtResource("5_nwnlq")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("6_8kr8e")
+icon_default = ExtResource("6_8kr8e")
+icon_pressed = ExtResource("7_cnjyl")
+
+[node name="ButtonText" type="Label" parent="Container/DropMenu/VBoxContainer/Options" unique_id=947407679]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_pw12o")
+theme_override_font_sizes/font_size = 150
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Menu" parent="Container/DropMenu/VBoxContainer" unique_id=438847013 instance=ExtResource("5_nwnlq")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("6_8kr8e")
+icon_default = ExtResource("6_8kr8e")
+icon_pressed = ExtResource("7_cnjyl")
+
+[node name="ButtonText" type="Label" parent="Container/DropMenu/VBoxContainer/Menu" unique_id=907034933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_pw12o")
+theme_override_font_sizes/font_size = 150
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="Restart" parent="Container/DropMenu/VBoxContainer" unique_id=1922633989 instance=ExtResource("5_nwnlq")]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon = ExtResource("6_8kr8e")
+icon_default = ExtResource("6_8kr8e")
+icon_pressed = ExtResource("7_cnjyl")
+
+[node name="ButtonText" type="Label" parent="Container/DropMenu/VBoxContainer/Restart" unique_id=2005066687]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_pw12o")
+theme_override_font_sizes/font_size = 150
+text = "Restart"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=973390070]
+libraries/ = SubResource("AnimationLibrary_nwnlq")
+
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Restart" to="." method="_on_exit_pressed"]

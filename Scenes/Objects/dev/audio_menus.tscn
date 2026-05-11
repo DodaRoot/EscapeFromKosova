@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cun44sgdj3i6s"]
+
+[ext_resource type="Script" uid="uid://dvb3l2tixoxx0" path="res://Scripts/audio_menus.gd" id="1_gcpme"]
+
+[node name="Audio_MENUS" type="AudioStreamPlayer" unique_id=27904579]
+volume_db = -10.0
+bus = &"Music"
+script = ExtResource("1_gcpme")

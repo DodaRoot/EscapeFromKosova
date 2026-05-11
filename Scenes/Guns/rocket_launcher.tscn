@@ -1,0 +1,349 @@
+[gd_scene format=3 uid="uid://cbn0yr3cwe4cg"]
+
+[ext_resource type="Script" uid="uid://dwsm6y2l05sfg" path="res://Scripts/rocket_launcher.gd" id="1_4jiff"]
+[ext_resource type="Texture2D" uid="uid://cpwwhicbdwpb6" path="res://Assets/Guns/Guns/RocketLauncher.png" id="1_l1etm"]
+[ext_resource type="Texture2D" uid="uid://bf32y0wrmstc8" path="res://Assets/Guns/Bullets/Rocket.png" id="2_0bmvl"]
+[ext_resource type="Texture2D" uid="uid://bm8yhyw1j5vcm" path="res://Assets/Characters/Clothing/SceneClothing/Ordinary/RightHand.png" id="2_4jiff"]
+[ext_resource type="AudioStream" uid="uid://cpu85lo0jc731" path="res://Assets/Audio/Guns/GrenadeLauncher.mp3" id="5_eqi0c"]
+[ext_resource type="Texture2D" uid="uid://c3bh4x5pxx5fs" path="res://Assets/Backgrounds/Effects/Explosion.png" id="5_it85v"]
+[ext_resource type="AudioStream" uid="uid://cm7vltsmrx1ja" path="res://Assets/Audio/Guns/Reload.mp3" id="6_it85v"]
+
+[sub_resource type="Gradient" id="Gradient_4jiff"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_0bmvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.36097848, 0.36097848]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rocket:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rocket:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rocket:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightHand:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(67, -7.000001)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rocket:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-188, 82)]
+}
+
+[sub_resource type="Animation" id="Animation_4jiff"]
+resource_name = "reload"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.75, 1.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.36097848, 0.48112905, 0.36097848]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rocket:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5707964, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rocket:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rocket:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rocket:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rocket:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-188, 82), Vector2(-200, -17), Vector2(-100, -17)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RightHand:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.75, 0.95, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(67, -7.000001), Vector2(67, -7.000001), Vector2(20, -7.000001), Vector2(67, -7.000001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gm4yj"]
+_data = {
+&"RESET": SubResource("Animation_0bmvl"),
+&"reload": SubResource("Animation_4jiff")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obv4y"]
+atlas = ExtResource("5_it85v")
+region = Rect2(0, 0, 28, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0xmh"]
+atlas = ExtResource("5_it85v")
+region = Rect2(0, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s78ge"]
+atlas = ExtResource("5_it85v")
+region = Rect2(141, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bojn"]
+atlas = ExtResource("5_it85v")
+region = Rect2(282, 0, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcutt"]
+atlas = ExtResource("5_it85v")
+region = Rect2(0, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15x0r"]
+atlas = ExtResource("5_it85v")
+region = Rect2(141, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on7su"]
+atlas = ExtResource("5_it85v")
+region = Rect2(282, 133, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haphe"]
+atlas = ExtResource("5_it85v")
+region = Rect2(0, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enpyh"]
+atlas = ExtResource("5_it85v")
+region = Rect2(141, 266, 141, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48o3g"]
+atlas = ExtResource("5_it85v")
+region = Rect2(282, 266, 141, 133)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jyjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0xmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s78ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bojn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcutt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15x0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on7su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haphe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enpyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48o3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv4y")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 70.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_l4m6w"]
+offsets = PackedFloat32Array(0, 0.2)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0bmvl"]
+gradient = SubResource("Gradient_l4m6w")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="RocketLauncher" type="Node2D" unique_id=1504190796]
+script = ExtResource("1_4jiff")
+
+[node name="Rocket" type="Sprite2D" parent="." unique_id=1794006726]
+visible = false
+z_index = -5
+position = Vector2(-188, 82)
+rotation = -1.5707964
+scale = Vector2(0.9, 0.8)
+texture = ExtResource("2_0bmvl")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1446888867]
+position = Vector2(119, -18)
+
+[node name="RocketLauncher" type="Sprite2D" parent="." unique_id=1921462129]
+z_index = 1
+position = Vector2(-11, -9)
+texture = ExtResource("1_l1etm")
+
+[node name="RightHand" type="Sprite2D" parent="." unique_id=1862417946]
+z_index = 2
+position = Vector2(67, -7.000001)
+rotation = 0.36097848
+scale = Vector2(1.1655959, 1.1655959)
+texture = ExtResource("2_4jiff")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=159331799]
+position = Vector2(120, -17)
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 40.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 700.0
+scale_amount_min = 6.0
+scale_amount_max = 7.0
+color = Color(1, 0.3882353, 0, 1)
+color_ramp = SubResource("Gradient_4jiff")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2081519615]
+libraries/ = SubResource("AnimationLibrary_gm4yj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=970917254]
+z_index = 1
+position = Vector2(120, -16)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_1jyjx")
+animation = &"shoot"
+frame = 10
+frame_progress = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=422604068]
+position = Vector2(119, -18)
+scale = Vector2(5.632813, 5.632813)
+color = Color(1, 0.30588236, 0.078431375, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_0bmvl")
+
+[node name="Audio" type="Node" parent="." unique_id=658160560]
+
+[node name="Audio_ROCKETLAUNCH" type="AudioStreamPlayer" parent="Audio" unique_id=60377460]
+stream = ExtResource("5_eqi0c")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Audio_RELOAD" type="AudioStreamPlayer" parent="Audio" unique_id=1261784108]
+stream = ExtResource("6_it85v")
+volume_db = 5.0
+bus = &"SFX"

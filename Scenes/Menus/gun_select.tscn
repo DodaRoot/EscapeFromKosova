@@ -1,0 +1,438 @@
+[gd_scene format=3 uid="uid://b2g3lap3r4o11"]
+
+[ext_resource type="Script" uid="uid://fsg6wv8ib504" path="res://Scripts/gun_select.gd" id="1_hq0ow"]
+[ext_resource type="Texture2D" uid="uid://l7xb3c5643h" path="res://Assets/Backgrounds/ShopBackgroundBlur.png" id="2_ovc40"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="3_phwqx"]
+[ext_resource type="Texture2D" uid="uid://b6ue3j3changq" path="res://Assets/UI/Buttons/Arrow_Default.png" id="4_y0d7b"]
+[ext_resource type="Texture2D" uid="uid://ba1syvhgayjrs" path="res://Assets/UI/Buttons/Arrow_Pressed.png" id="5_er7yy"]
+[ext_resource type="Texture2D" uid="uid://dtjw3vlt2x0sa" path="res://Assets/Guns/Guns/Pistol.png" id="5_hbb2i"]
+[ext_resource type="Texture2D" uid="uid://c1bhvj66vxvnv" path="res://Assets/Guns/Guns/Sniper.png" id="5_hq0ow"]
+[ext_resource type="Texture2D" uid="uid://df287s3wlcawa" path="res://Assets/UI/MenuItems/WoodTable.png" id="6_2neiw"]
+[ext_resource type="Texture2D" uid="uid://cpwwhicbdwpb6" path="res://Assets/Guns/Guns/RocketLauncher.png" id="6_hbb2i"]
+[ext_resource type="Texture2D" uid="uid://pnj11xoh0h5h" path="res://Assets/UI/MenuItems/WoodHeader.png" id="7_831u4"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="8_denfy"]
+[ext_resource type="Texture2D" uid="uid://boaw3ytu6its8" path="res://Assets/Guns/Guns/AK_Full.png" id="8_w0ruq"]
+[ext_resource type="Texture2D" uid="uid://ds80vtr5ol5y6" path="res://Assets/UI/MenuItems/ItemContainerS.png" id="10_w0ruq"]
+[ext_resource type="AudioStream" uid="uid://dxeecp3m3bt76" path="res://Assets/Audio/Entities/ButtonClick2.mp3" id="14_ossnv"]
+
+[sub_resource type="Theme" id="Theme_0tioa"]
+
+[node name="GunSelect" type="Control" unique_id=885537052]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_hq0ow")
+
+[node name="Background" type="TextureRect" parent="." unique_id=91464391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ovc40")
+
+[node name="DefaultMenu" type="TextureRect" parent="." unique_id=1586165871]
+custom_minimum_size = Vector2(700, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -450.0
+offset_right = 500.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_2neiw")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="DefaultMenu" unique_id=1879899263]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 560.0
+offset_bottom = 100.0
+texture = ExtResource("7_831u4")
+expand_mode = 1
+
+[node name="TitleText" type="Label" parent="DefaultMenu/Title" unique_id=271278885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 65
+text = "Your gun's"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyText" type="Label" parent="DefaultMenu" unique_id=1837354114]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 23.0
+offset_right = 972.0
+offset_bottom = 76.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 20
+text = "Guns are unlocked by completing levels"
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DefaultMenu" unique_id=1876420330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = 131.0
+offset_right = -59.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0tioa")
+
+[node name="GunsContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer" unique_id=1899841159]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+
+[node name="Pistol" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/GunsContainer" unique_id=349583361]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/Pistol" unique_id=1167230025]
+custom_minimum_size = Vector2(840, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_w0ruq")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/Pistol/ItemContainer" unique_id=1977523917]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 139.0
+offset_top = 56.999992
+offset_right = 266.0
+offset_bottom = 153.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_hbb2i")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/GunsContainer/Pistol/ItemContainer" unique_id=1666641156]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/Pistol/ItemContainer/Text" unique_id=385900721]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 8.0
+offset_right = 704.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 38
+text = "Pistol"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/Pistol/ItemContainer/Text" unique_id=1079225678]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 50.0
+offset_right = 615.0
+offset_bottom = 172.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 30
+text = "Most reliable weapon you will ever have"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/Pistol/ItemContainer/Text" unique_id=254264907]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 113.0
+offset_right = 824.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 49
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AK-47" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/GunsContainer" unique_id=241049311]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/AK-47" unique_id=1918552600]
+custom_minimum_size = Vector2(840, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_w0ruq")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/AK-47/ItemContainer" unique_id=299357510]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 76.00003
+offset_top = 61.999996
+offset_right = 520.0
+offset_bottom = 199.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_w0ruq")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/GunsContainer/AK-47/ItemContainer" unique_id=182444982]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/AK-47/ItemContainer/Text" unique_id=410777736]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 8.0
+offset_right = 704.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 38
+text = "AK-47"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/AK-47/ItemContainer/Text" unique_id=103491197]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 50.0
+offset_right = 615.0
+offset_bottom = 172.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 30
+text = "The soldiers best friend"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/AK-47/ItemContainer/Text" unique_id=294832781]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 113.0
+offset_right = 824.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 49
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sniper" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/GunsContainer" unique_id=661484324]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/Sniper" unique_id=902844013]
+custom_minimum_size = Vector2(840, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_w0ruq")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/Sniper/ItemContainer" unique_id=1805822090]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 49.00003
+offset_top = 59.0
+offset_right = 571.0
+offset_bottom = 196.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_hq0ow")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/GunsContainer/Sniper/ItemContainer" unique_id=1259364053]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/Sniper/ItemContainer/Text" unique_id=217930828]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 7.0
+offset_right = 704.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 38
+text = "Sniper"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/Sniper/ItemContainer/Text" unique_id=65595684]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 50.0
+offset_right = 615.0
+offset_bottom = 172.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 30
+text = "An assasins best tool"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/Sniper/ItemContainer/Text" unique_id=1257835599]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 113.0
+offset_right = 824.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 49
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RocketLauncher" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/GunsContainer" unique_id=962671381]
+layout_mode = 2
+
+[node name="ItemContainer" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/RocketLauncher" unique_id=1028772435]
+custom_minimum_size = Vector2(840, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_w0ruq")
+expand_mode = 1
+
+[node name="Item" type="TextureRect" parent="DefaultMenu/ScrollContainer/GunsContainer/RocketLauncher/ItemContainer" unique_id=2137558446]
+modulate = Color(1, 1, 1, 0.49019608)
+layout_mode = 0
+offset_left = 41.00003
+offset_top = 57.0
+offset_right = 580.0
+offset_bottom = 206.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_hbb2i")
+
+[node name="Text" type="Control" parent="DefaultMenu/ScrollContainer/GunsContainer/RocketLauncher/ItemContainer" unique_id=1170414202]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Title" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/RocketLauncher/ItemContainer/Text" unique_id=688826947]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 4.0
+offset_right = 704.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 38
+text = "Rocket Launcher"
+
+[node name="Lore" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/RocketLauncher/ItemContainer/Text" unique_id=1239599078]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 50.0
+offset_right = 615.0
+offset_bottom = 172.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -10
+theme_override_constants/paragraph_spacing = -17
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 30
+text = "The definition of power"
+autowrap_mode = 2
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/GunsContainer/RocketLauncher/ItemContainer/Text" unique_id=1256186592]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 113.0
+offset_right = 824.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("8_denfy")
+theme_override_font_sizes/font_size = 49
+text = "Locked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackPlaceholder" type="Control" parent="." unique_id=1455427981]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="Back" parent="BackPlaceholder" unique_id=1378731580 instance=ExtResource("3_phwqx")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -251.0
+offset_right = 0.0
+grow_horizontal = 0
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(125.5, 133)
+mouse_behavior_recursive = 2
+icon = ExtResource("4_y0d7b")
+icon_default = ExtResource("4_y0d7b")
+icon_pressed = ExtResource("5_er7yy")
+offset = 8
+click_sound = ExtResource("14_ossnv")
+
+[connection signal="pressed" from="BackPlaceholder/Back" to="." method="_on_back_pressed"]

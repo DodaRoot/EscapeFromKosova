@@ -1,0 +1,485 @@
+[gd_scene format=3 uid="uid://bquyrvjjy5q2r"]
+
+[ext_resource type="Script" uid="uid://cw24tmgwj0id0" path="res://Scripts/skills.gd" id="1_liodr"]
+[ext_resource type="Texture2D" uid="uid://l7xb3c5643h" path="res://Assets/Backgrounds/ShopBackgroundBlur.png" id="2_upcj0"]
+[ext_resource type="Texture2D" uid="uid://df287s3wlcawa" path="res://Assets/UI/MenuItems/WoodTable.png" id="2_w5854"]
+[ext_resource type="Texture2D" uid="uid://pnj11xoh0h5h" path="res://Assets/UI/MenuItems/WoodHeader.png" id="3_upcj0"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="4_t3p0v"]
+[ext_resource type="Texture2D" uid="uid://wk8dhbjjshtp" path="res://Assets/UI/MenuItems/Money.png" id="5_notj3"]
+[ext_resource type="Texture2D" uid="uid://cc3tm3rj3gijq" path="res://Assets/UI/MenuItems/Health.png" id="5_xi53y"]
+[ext_resource type="Texture2D" uid="uid://byt6dpy1n2r4y" path="res://Assets/UI/MenuItems/Jump.png" id="6_notj3"]
+[ext_resource type="Texture2D" uid="uid://blrry8ugagucy" path="res://Assets/UI/MenuItems/Speed.png" id="7_w5854"]
+[ext_resource type="Texture2D" uid="uid://d18ecq40adhfs" path="res://Assets/UI/Buttons/Add_Default.png" id="8_t3p0v"]
+[ext_resource type="Texture2D" uid="uid://6j7gfew5wqma" path="res://Assets/UI/MenuItems/Skill.png" id="8_upcj0"]
+[ext_resource type="Texture2D" uid="uid://ba4vse88gtnhm" path="res://Assets/UI/Buttons/Add_Pressed.png" id="9_g4pq6"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="11_w5854"]
+[ext_resource type="Texture2D" uid="uid://b6ue3j3changq" path="res://Assets/UI/Buttons/Arrow_Default.png" id="14_g4pq6"]
+[ext_resource type="Texture2D" uid="uid://ba1syvhgayjrs" path="res://Assets/UI/Buttons/Arrow_Pressed.png" id="15_x3b7x"]
+[ext_resource type="AudioStream" uid="uid://dxeecp3m3bt76" path="res://Assets/Audio/Entities/ButtonClick2.mp3" id="16_x3b7x"]
+
+[node name="Skills" type="Control" unique_id=1672461284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_liodr")
+
+[node name="Background" type="TextureRect" parent="." unique_id=218994208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_upcj0")
+
+[node name="DefaultMenu" type="TextureRect" parent="." unique_id=499691935]
+custom_minimum_size = Vector2(700, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -482.0
+offset_right = 500.0
+offset_bottom = 482.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(500, 482)
+texture = ExtResource("2_w5854")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="DefaultMenu" unique_id=1318581842]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 491.0
+offset_bottom = 100.0
+texture = ExtResource("3_upcj0")
+expand_mode = 1
+
+[node name="TitleText" type="Label" parent="DefaultMenu/Title" unique_id=278011337]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 65
+text = "Skills Leveling"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyText" type="Label" parent="DefaultMenu" unique_id=918795324]
+layout_mode = 0
+offset_left = 655.0
+offset_top = 14.0
+offset_right = 926.0
+offset_bottom = 81.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 55
+text = "1000000"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="DefaultMenu/MoneyText" unique_id=689540806]
+position = Vector2(296, 34)
+scale = Vector2(0.20566498, 0.20566498)
+texture = ExtResource("5_notj3")
+
+[node name="Health" type="Control" parent="DefaultMenu" unique_id=1805360977]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthTitle" type="Label" parent="DefaultMenu/Health" unique_id=1041696859]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -417.75
+offset_top = -354.0
+offset_right = -42.75
+offset_bottom = -232.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 100
+text = "Health"
+vertical_alignment = 1
+
+[node name="HealthIcon" type="Sprite2D" parent="DefaultMenu/Health" unique_id=1117615688]
+position = Vector2(-338.75, -172)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_xi53y")
+
+[node name="Price" type="Label" parent="DefaultMenu/Health" unique_id=1965910557]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 229.0
+offset_top = -324.0
+offset_right = 348.0
+offset_bottom = -238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 70
+text = "300"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="DefaultMenu/Health/Price" unique_id=2019728450]
+position = Vector2(157, 43.999996)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_notj3")
+
+[node name="AddHealth" parent="DefaultMenu/Health" unique_id=191202193 instance=ExtResource("11_w5854")]
+layout_mode = 0
+offset_left = 289.25
+offset_top = -237.0
+offset_right = 540.25
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("8_t3p0v")
+icon_default = ExtResource("8_t3p0v")
+icon_pressed = ExtResource("9_g4pq6")
+
+[node name="SkillBarHealth" type="HBoxContainer" parent="DefaultMenu/Health" unique_id=2080654988]
+layout_mode = 0
+offset_left = -237.74994
+offset_top = -238.99994
+offset_right = 394.25006
+offset_bottom = -66.99994
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 40
+
+[node name="1" type="TextureRect" parent="DefaultMenu/Health/SkillBarHealth" unique_id=1727967241]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="2" type="TextureRect" parent="DefaultMenu/Health/SkillBarHealth" unique_id=1631025415]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="3" type="TextureRect" parent="DefaultMenu/Health/SkillBarHealth" unique_id=861765467]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="4" type="TextureRect" parent="DefaultMenu/Health/SkillBarHealth" unique_id=800185426]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="5" type="TextureRect" parent="DefaultMenu/Health/SkillBarHealth" unique_id=1133183532]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="6" type="TextureRect" parent="DefaultMenu/Health/SkillBarHealth" unique_id=922943936]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="7" type="TextureRect" parent="DefaultMenu/Health/SkillBarHealth" unique_id=219525419]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="Speed" type="Control" parent="DefaultMenu" unique_id=1213737437]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpeedTitle" type="Label" parent="DefaultMenu/Speed" unique_id=1330575290]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -417.75
+offset_top = -108.0
+offset_right = -42.75
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 100
+text = "Speed"
+vertical_alignment = 1
+
+[node name="SpeedIcon" type="Sprite2D" parent="DefaultMenu/Speed" unique_id=1052123184]
+position = Vector2(-337.75, 94.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_w5854")
+
+[node name="Price" type="Label" parent="DefaultMenu/Speed" unique_id=1763670754]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 229.0
+offset_top = -68.0
+offset_right = 348.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 70
+text = "300"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="DefaultMenu/Speed/Price" unique_id=39271404]
+position = Vector2(157, 43.999996)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_notj3")
+
+[node name="AddSpeed" parent="DefaultMenu/Speed" unique_id=1289413851 instance=ExtResource("11_w5854")]
+layout_mode = 0
+offset_left = 290.25
+offset_top = 22.5
+offset_right = 541.25
+offset_bottom = 282.5
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("8_t3p0v")
+icon_default = ExtResource("8_t3p0v")
+icon_pressed = ExtResource("9_g4pq6")
+
+[node name="SkillBarSpeed" type="HBoxContainer" parent="DefaultMenu/Speed" unique_id=777853987]
+layout_mode = 0
+offset_left = -236.74994
+offset_top = 20.500061
+offset_right = 395.25006
+offset_bottom = 192.50006
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 40
+
+[node name="1" type="TextureRect" parent="DefaultMenu/Speed/SkillBarSpeed" unique_id=807393053]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="2" type="TextureRect" parent="DefaultMenu/Speed/SkillBarSpeed" unique_id=2024566145]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="3" type="TextureRect" parent="DefaultMenu/Speed/SkillBarSpeed" unique_id=1517821462]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="4" type="TextureRect" parent="DefaultMenu/Speed/SkillBarSpeed" unique_id=882224233]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="5" type="TextureRect" parent="DefaultMenu/Speed/SkillBarSpeed" unique_id=2133928524]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="6" type="TextureRect" parent="DefaultMenu/Speed/SkillBarSpeed" unique_id=1982606029]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="7" type="TextureRect" parent="DefaultMenu/Speed/SkillBarSpeed" unique_id=492990761]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="Jump" type="Control" parent="DefaultMenu" unique_id=138032858]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JumpTitle" type="Label" parent="DefaultMenu/Jump" unique_id=1486021495]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -417.75
+offset_top = 141.0
+offset_right = -42.75
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 100
+text = "Jump"
+vertical_alignment = 1
+
+[node name="JumpIcon" type="Sprite2D" parent="DefaultMenu/Jump" unique_id=711011868]
+position = Vector2(-340.25, 333.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_notj3")
+
+[node name="Price" type="Label" parent="DefaultMenu/Jump" unique_id=475572821]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 229.0
+offset_top = 175.0
+offset_right = 348.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_t3p0v")
+theme_override_font_sizes/font_size = 70
+text = "300"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="DefaultMenu/Jump/Price" unique_id=1289462039]
+position = Vector2(157, 43.999996)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_notj3")
+
+[node name="AddJump" parent="DefaultMenu/Jump" unique_id=57134270 instance=ExtResource("11_w5854")]
+layout_mode = 0
+offset_left = 287.75
+offset_top = 268.75
+offset_right = 538.75
+offset_bottom = 528.75
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("8_t3p0v")
+icon_default = ExtResource("8_t3p0v")
+icon_pressed = ExtResource("9_g4pq6")
+
+[node name="SkillBarJump" type="HBoxContainer" parent="DefaultMenu/Jump" unique_id=541844126]
+layout_mode = 0
+offset_left = -239.24994
+offset_top = 266.75006
+offset_right = 392.75006
+offset_bottom = 438.75006
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 40
+
+[node name="1" type="TextureRect" parent="DefaultMenu/Jump/SkillBarJump" unique_id=1835863142]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="2" type="TextureRect" parent="DefaultMenu/Jump/SkillBarJump" unique_id=1875995907]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="3" type="TextureRect" parent="DefaultMenu/Jump/SkillBarJump" unique_id=1546828010]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="4" type="TextureRect" parent="DefaultMenu/Jump/SkillBarJump" unique_id=1633549939]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="5" type="TextureRect" parent="DefaultMenu/Jump/SkillBarJump" unique_id=1310081939]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="6" type="TextureRect" parent="DefaultMenu/Jump/SkillBarJump" unique_id=825595063]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="7" type="TextureRect" parent="DefaultMenu/Jump/SkillBarJump" unique_id=194497714]
+layout_mode = 2
+texture = ExtResource("8_upcj0")
+
+[node name="BackPlaceholder" type="Control" parent="." unique_id=2026865913]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="Back" parent="BackPlaceholder" unique_id=748476056 instance=ExtResource("11_w5854")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -251.0
+offset_right = 0.0
+grow_horizontal = 0
+scale = Vector2(-0.6, 0.6)
+pivot_offset = Vector2(125.5, 133)
+mouse_behavior_recursive = 2
+icon = ExtResource("14_g4pq6")
+icon_default = ExtResource("14_g4pq6")
+icon_pressed = ExtResource("15_x3b7x")
+offset = 8
+click_sound = ExtResource("16_x3b7x")
+
+[connection signal="pressed" from="DefaultMenu/Health/AddHealth" to="." method="_on_add_health_pressed"]
+[connection signal="pressed" from="DefaultMenu/Speed/AddSpeed" to="." method="_on_add_speed_pressed"]
+[connection signal="pressed" from="DefaultMenu/Jump/AddJump" to="." method="_on_add_jump_pressed"]
+[connection signal="pressed" from="BackPlaceholder/Back" to="." method="_on_back_pressed"]

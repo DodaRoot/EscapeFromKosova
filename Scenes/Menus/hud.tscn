@@ -1,0 +1,774 @@
+[gd_scene format=3 uid="uid://ckqamhowwch58"]
+
+[ext_resource type="Texture2D" uid="uid://cwbxn6jjjbpsg" path="res://Assets/UI/HUD/HealthUI.png" id="1_v1m4g"]
+[ext_resource type="Script" uid="uid://bmmj6p8ck7bik" path="res://Scripts/hud.gd" id="1_wuquj"]
+[ext_resource type="Texture2D" uid="uid://3y72kpt4ox" path="res://Assets/UI/HUD/BulletsUI.png" id="2_smsyt"]
+[ext_resource type="Texture2D" uid="uid://sdhihvy3ovtr" path="res://Assets/UI/HUD/MoneyUI.png" id="3_sg5wc"]
+[ext_resource type="Texture2D" uid="uid://cjre7fohw8wmo" path="res://Assets/UI/MenuItems/Clock.png" id="5_ur20n"]
+[ext_resource type="Texture2D" uid="uid://dv7oajcbmnfak" path="res://Assets/UI/HUD/Right_Default.png" id="9_e6hqk"]
+[ext_resource type="PackedScene" uid="uid://b80iue6e73tcx" path="res://Scenes/Objects/dev/touch_screen_button.tscn" id="9_wuquj"]
+[ext_resource type="Texture2D" uid="uid://bkd64jmmlne05" path="res://Assets/UI/Buttons/Pause_Default.png" id="9_wyh0b"]
+[ext_resource type="Texture2D" uid="uid://32lr6sihxr0h" path="res://Assets/UI/HUD/Pistol_Default.png" id="10_1yv2o"]
+[ext_resource type="Texture2D" uid="uid://cdrw4mppmirbu" path="res://Assets/UI/HUD/Right_Pressed.png" id="10_d3oxk"]
+[ext_resource type="Texture2D" uid="uid://b6k55hfa3s560" path="res://Assets/UI/Buttons/Pause_Pressed.png" id="10_nmhbp"]
+[ext_resource type="Texture2D" uid="uid://dtprkmopcq2rg" path="res://Assets/UI/HUD/Left_Default.png" id="11_8pirw"]
+[ext_resource type="Texture2D" uid="uid://deaidp7jucyyh" path="res://Assets/UI/HUD/Pistol_Pressed.png" id="11_8sutc"]
+[ext_resource type="Texture2D" uid="uid://dc57o88472iuk" path="res://Assets/UI/HUD/Sniper_Default.png" id="12_dj103"]
+[ext_resource type="Texture2D" uid="uid://sderis0sugnt" path="res://Assets/UI/HUD/Left_Pressed.png" id="12_q1b0b"]
+[ext_resource type="Texture2D" uid="uid://qwqxyriamwvj" path="res://Assets/UI/HUD/ProgressBarBackground.png" id="13_28gir"]
+[ext_resource type="Texture2D" uid="uid://7gpaa7wha0aa" path="res://Assets/UI/HUD/Sniper_Pressed.png" id="13_e6hqk"]
+[ext_resource type="Texture2D" uid="uid://dumqll47eobfn" path="res://Assets/UI/HUD/RocketLauncher_Default.png" id="14_d3oxk"]
+[ext_resource type="Texture2D" uid="uid://pu5m6py8r024" path="res://Assets/UI/HUD/ProgressBarFill.png" id="14_fon7n"]
+[ext_resource type="Texture2D" uid="uid://cajxe5ukodw6a" path="res://Assets/UI/HUD/RocketLauncher_Pressed.png" id="15_8pirw"]
+[ext_resource type="Texture2D" uid="uid://b78tbmpjlrx47" path="res://Assets/UI/HUD/Jump_Default.png" id="19_8pirw"]
+[ext_resource type="Texture2D" uid="uid://bga47rdybs7fq" path="res://Assets/UI/HUD/Jump_Pressed.png" id="20_q1b0b"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="23_wyh0b"]
+[ext_resource type="PackedScene" uid="uid://ca2odhaaov7k8" path="res://Scenes/Objects/dev/button.tscn" id="25_d83d5"]
+[ext_resource type="Texture2D" uid="uid://cy245h50sjb5w" path="res://Assets/UI/Buttons/Button_Default.png" id="26_8ny5t"]
+[ext_resource type="Texture2D" uid="uid://dx6erk41kbk6n" path="res://Assets/UI/Buttons/Button_Pressed.png" id="27_g1jt7"]
+
+[sub_resource type="Animation" id="Animation_5fui5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContainerOfItems/TimeContainer/TimeIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reloading/ReloadingProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Reloading:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_28gir"]
+resource_name = "reload"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Reloading/ReloadingProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reloading:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ur20n"]
+resource_name = "time_icon"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContainerOfItems/TimeContainer/TimeIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.43, 0.4), Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28gir"]
+_data = {
+&"RESET": SubResource("Animation_5fui5"),
+&"reload": SubResource("Animation_28gir"),
+&"time_icon": SubResource("Animation_ur20n")
+}
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_28gir"]
+filter_enabled = true
+filters = ["Reloading/ReloadingProgressBar:value", "Reloading:visible"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fon7n"]
+animation = &"reload"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j5l3j"]
+animation = &"time_icon"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_1yv2o"]
+nodes/TimeBob/node = SubResource("AnimationNodeAnimation_j5l3j")
+nodes/TimeBob/position = Vector2(-368, 112)
+nodes/PlayReload/node = SubResource("AnimationNodeOneShot_28gir")
+nodes/PlayReload/position = Vector2(-112, 96)
+nodes/Reload/node = SubResource("AnimationNodeAnimation_fon7n")
+nodes/Reload/position = Vector2(-368, 304)
+node_connections = [&"output", 0, &"PlayReload", &"PlayReload", 0, &"TimeBob", &"PlayReload", 1, &"Reload"]
+
+[node name="HUD" type="CanvasLayer" unique_id=2126999751 groups=["HUD"]]
+script = ExtResource("1_wuquj")
+metadata/_edit_use_anchors_ = true
+
+[node name="ContainerOfItems" type="Control" parent="." unique_id=957105985]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Health" type="TextureRect" parent="ContainerOfItems" unique_id=1915562963]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 640.0
+offset_bottom = 291.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_v1m4g")
+
+[node name="HealthText" type="Label" parent="ContainerOfItems/Health" unique_id=1666881098]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -66.0
+offset_right = 253.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bullets" type="TextureRect" parent="ContainerOfItems" unique_id=1046299817]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 5.0
+offset_right = 958.0
+offset_bottom = 302.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_smsyt")
+
+[node name="BulletsText" type="Label" parent="ContainerOfItems/Bullets" unique_id=744363232]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -54.5
+offset_right = 253.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "30/60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="TextureRect" parent="ContainerOfItems" unique_id=1014800174]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 38.0
+offset_right = 1278.0
+offset_bottom = 275.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_sg5wc")
+
+[node name="MoneyText" type="Label" parent="ContainerOfItems/Money" unique_id=1282247573]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -94.5
+offset_right = 253.0
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeContainer" type="Node2D" parent="ContainerOfItems" unique_id=1208572530]
+position = Vector2(997, 66)
+
+[node name="TimeText" type="Label" parent="ContainerOfItems/TimeContainer" unique_id=1878707818]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -19.0
+offset_right = 417.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "200"
+vertical_alignment = 1
+
+[node name="TimeIcon" type="Sprite2D" parent="ContainerOfItems/TimeContainer" unique_id=499717154]
+position = Vector2(59.000004, 31)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_ur20n")
+
+[node name="AddContainer" type="Node2D" parent="ContainerOfItems" unique_id=60578270]
+position = Vector2(1263, 51)
+
+[node name="ContainerOfSettings" type="Control" parent="." unique_id=720539572]
+z_index = -2
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Pause" parent="ContainerOfSettings" unique_id=594965920 instance=ExtResource("9_wuquj")]
+position = Vector2(-201, 27)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("9_wyh0b")
+texture_pressed = ExtResource("10_nmhbp")
+action = "Pause"
+
+[node name="ContainerOfControlls" type="Control" parent="." unique_id=1147427318]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0515137
+offset_bottom = 2.0515137
+grow_vertical = 0
+
+[node name="MoveRight" parent="ContainerOfControlls" unique_id=1946905472 instance=ExtResource("9_wuquj")]
+position = Vector2(292.09167, -261.05157)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("9_e6hqk")
+texture_pressed = ExtResource("10_d3oxk")
+action = "MoveRight"
+
+[node name="MoveLeft" parent="ContainerOfControlls" unique_id=1713149543 instance=ExtResource("9_wuquj")]
+position = Vector2(25.945631, -261.05157)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("11_8pirw")
+texture_pressed = ExtResource("12_q1b0b")
+action = "MoveLeft"
+
+[node name="Pistol" parent="ContainerOfControlls" unique_id=1076637305 instance=ExtResource("9_wuquj")]
+visible = false
+position = Vector2(170, -560.0516)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("10_1yv2o")
+texture_pressed = ExtResource("11_8sutc")
+
+[node name="AK-47" parent="ContainerOfControlls" unique_id=1131852340 instance=ExtResource("9_wuquj")]
+visible = false
+position = Vector2(2, -700)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sniper" parent="ContainerOfControlls" unique_id=1064693269 instance=ExtResource("9_wuquj")]
+visible = false
+position = Vector2(337, -700)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("12_dj103")
+texture_pressed = ExtResource("13_e6hqk")
+
+[node name="RocketLauncher" parent="ContainerOfControlls" unique_id=2135134243 instance=ExtResource("9_wuquj")]
+visible = false
+position = Vector2(168.00006, -841.05145)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("14_d3oxk")
+texture_pressed = ExtResource("15_8pirw")
+
+[node name="Control" type="Control" parent="ContainerOfControlls" unique_id=1165752301]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -333.0515
+offset_right = 595.0
+grow_vertical = 0
+
+[node name="ContainerOfJumpAndGuns" type="Control" parent="." unique_id=1388002845]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Jump" parent="ContainerOfJumpAndGuns" unique_id=1548338228 instance=ExtResource("9_wuquj")]
+position = Vector2(-263.99997, -249)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("19_8pirw")
+texture_pressed = ExtResource("20_q1b0b")
+action = "Jump"
+
+[node name="TutorialContainer" type="Node" parent="." unique_id=784639485]
+process_mode = 3
+
+[node name="TutorialItems" type="CanvasLayer" parent="TutorialContainer" unique_id=323627620]
+visible = false
+
+[node name="TutorialRect" type="ColorRect" parent="TutorialContainer/TutorialItems" unique_id=1906363598]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialItems" unique_id=340329241]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -75.5
+offset_right = 574.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 60
+text = "This is the info section it shows health bullets money and the time you have left"
+autowrap_mode = 2
+
+[node name="ItemsNext" parent="TutorialContainer/TutorialItems/Label" unique_id=1878701484 instance=ExtResource("25_d83d5")]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 161.5
+offset_right = 1492.0
+offset_bottom = 427.5
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("26_8ny5t")
+icon_default = ExtResource("26_8ny5t")
+icon_pressed = ExtResource("27_g1jt7")
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialItems/Label/ItemsNext" unique_id=1602496532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 150
+text = "Next"
+horizontal_alignment = 1
+
+[node name="TutorialSettings" type="CanvasLayer" parent="TutorialContainer" unique_id=894131210]
+visible = false
+
+[node name="TutorialRect" type="ColorRect" parent="TutorialContainer/TutorialSettings" unique_id=10431351]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialSettings" unique_id=1746445014]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -524.0
+offset_top = -37.0
+offset_right = 524.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 60
+text = "Here you can mute or pause the game"
+autowrap_mode = 2
+
+[node name="SettingsNext" parent="TutorialContainer/TutorialSettings/Label" unique_id=1075099729 instance=ExtResource("25_d83d5")]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 84.0
+offset_right = 1401.0
+offset_bottom = 350.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("26_8ny5t")
+icon_default = ExtResource("26_8ny5t")
+icon_pressed = ExtResource("27_g1jt7")
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialSettings/Label/SettingsNext" unique_id=442310768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 150
+text = "Next"
+horizontal_alignment = 1
+
+[node name="TutorialJumpAndGuns" type="CanvasLayer" parent="TutorialContainer" unique_id=1877522167]
+visible = false
+
+[node name="TutorialRect" type="ColorRect" parent="TutorialContainer/TutorialJumpAndGuns" unique_id=1422225278]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialJumpAndGuns" unique_id=1727243639]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -365.0
+offset_top = -37.0
+offset_right = 365.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 60
+text = "This button is used to jump"
+autowrap_mode = 2
+
+[node name="JumpGunsNext" parent="TutorialContainer/TutorialJumpAndGuns/Label" unique_id=180073267 instance=ExtResource("25_d83d5")]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 94.0
+offset_right = 1106.0
+offset_bottom = 360.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("26_8ny5t")
+icon_default = ExtResource("26_8ny5t")
+icon_pressed = ExtResource("27_g1jt7")
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialJumpAndGuns/Label/JumpGunsNext" unique_id=478685165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 150
+text = "Next"
+horizontal_alignment = 1
+
+[node name="TutorialMoveControls" type="CanvasLayer" parent="TutorialContainer" unique_id=1205402154]
+visible = false
+
+[node name="TutorialRect" type="ColorRect" parent="TutorialContainer/TutorialMoveControls" unique_id=1731153992]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialMoveControls" unique_id=1154840549]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -537.5
+offset_top = -37.0
+offset_right = 537.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 60
+text = "These are the controls you use to move"
+autowrap_mode = 2
+
+[node name="MoveControlsNext" parent="TutorialContainer/TutorialMoveControls/Label" unique_id=1079830463 instance=ExtResource("25_d83d5")]
+layout_mode = 0
+offset_left = 694.5
+offset_top = 80.0
+offset_right = 1449.5
+offset_bottom = 346.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("26_8ny5t")
+icon_default = ExtResource("26_8ny5t")
+icon_pressed = ExtResource("27_g1jt7")
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialMoveControls/Label/MoveControlsNext" unique_id=50929838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 150
+text = "Next"
+horizontal_alignment = 1
+
+[node name="TutorialShoot" type="CanvasLayer" parent="TutorialContainer" unique_id=331141521]
+visible = false
+
+[node name="TutorialRect" type="ColorRect" parent="TutorialContainer/TutorialShoot" unique_id=966562649]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialShoot" unique_id=542330901]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -75.5
+offset_right = 525.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 60
+text = "Click anywhere on the screen to shoot"
+autowrap_mode = 2
+
+[node name="ShootNext" parent="TutorialContainer/TutorialShoot/Label" unique_id=959341168 instance=ExtResource("25_d83d5")]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 89.5
+offset_right = 1417.0
+offset_bottom = 355.5
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("26_8ny5t")
+icon_default = ExtResource("26_8ny5t")
+icon_pressed = ExtResource("27_g1jt7")
+
+[node name="Label" type="Label" parent="TutorialContainer/TutorialShoot/Label/ShootNext" unique_id=995617379]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 32.0
+offset_right = -8.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/outline_size = 35
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 150
+text = "Finish"
+horizontal_alignment = 1
+
+[node name="Reloading" type="Control" parent="." unique_id=1682457731]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+
+[node name="ReloadingProgressBar" type="TextureProgressBar" parent="Reloading" unique_id=2067498104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -29.5
+offset_right = 149.0
+offset_bottom = 269.5
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+texture_under = ExtResource("13_28gir")
+texture_progress = ExtResource("14_fon7n")
+tint_under = Color(1, 0.39215687, 0, 0.3137255)
+
+[node name="ReloadingText" type="Label" parent="Reloading" unique_id=1422650908]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -190.5
+offset_right = 280.0
+offset_bottom = -25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "Reloading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1026854483]
+libraries/ = SubResource("AnimationLibrary_28gir")
+autoplay = &"time_icon"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1178795721]
+tree_root = SubResource("AnimationNodeBlendTree_1yv2o")
+anim_player = NodePath("../AnimationPlayer")
+parameters/PlayReload/active = false
+parameters/PlayReload/internal_active = false
+parameters/PlayReload/request = 0
+
+[node name="Fps" type="Label" parent="." unique_id=1885792261]
+offset_left = 32.0
+offset_top = 155.0
+offset_right = 332.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(1, 0.6784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.19607843, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("23_wyh0b")
+theme_override_font_sizes/font_size = 60
+text = "FPS: "
+
+[connection signal="pressed" from="ContainerOfControlls/Pistol" to="." method="_on_pistol_pressed"]
+[connection signal="pressed" from="ContainerOfControlls/AK-47" to="." method="_on_ak_47_pressed"]
+[connection signal="pressed" from="ContainerOfControlls/Sniper" to="." method="_on_sniper_pressed"]
+[connection signal="pressed" from="ContainerOfControlls/RocketLauncher" to="." method="_on_rocket_launcher_pressed"]
+[connection signal="pressed" from="TutorialContainer/TutorialItems/Label/ItemsNext" to="." method="_on_items_next_pressed"]
+[connection signal="pressed" from="TutorialContainer/TutorialSettings/Label/SettingsNext" to="." method="_on_settings_next_pressed"]
+[connection signal="pressed" from="TutorialContainer/TutorialJumpAndGuns/Label/JumpGunsNext" to="." method="_on_jump_guns_next_pressed"]
+[connection signal="pressed" from="TutorialContainer/TutorialMoveControls/Label/MoveControlsNext" to="." method="_on_move_controls_next_pressed"]
+[connection signal="pressed" from="TutorialContainer/TutorialShoot/Label/ShootNext" to="." method="_on_shoot_next_pressed"]

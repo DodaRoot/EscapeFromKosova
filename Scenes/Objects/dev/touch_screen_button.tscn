@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b80iue6e73tcx"]
+
+[ext_resource type="Texture2D" uid="uid://dcp1xsw2ujo1x" path="res://Assets/UI/HUD/AK_Default.png" id="1_g7jsp"]
+[ext_resource type="Texture2D" uid="uid://b47lp8sqk5fx" path="res://Assets/UI/HUD/AK_Pressed.png" id="2_q78bg"]
+[ext_resource type="Script" uid="uid://chdxixa3x0mwo" path="res://Scripts/touch_screen_button.gd" id="3_q78bg"]
+
+[node name="TouchScreenButton" type="TouchScreenButton"]
+texture_normal = ExtResource("1_g7jsp")
+texture_pressed = ExtResource("2_q78bg")
+script = ExtResource("3_q78bg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="released" from="." to="." method="_on_released"]

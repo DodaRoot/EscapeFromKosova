@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://lwjvw3nndw3q"]
+
+[ext_resource type="Texture2D" uid="uid://cgvjp7abqwwkg" path="res://Assets/Tiles/Entities/SimplePlatform.png" id="1_mypyp"]
+[ext_resource type="Script" uid="uid://krtvk2g4p2fk" path="res://Scripts/moving_platform.gd" id="1_ugclg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugclg"]
+size = Vector2(192, 23)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=737658914]
+script = ExtResource("1_ugclg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1277108376]
+z_index = -2
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_mypyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054241870]
+position = Vector2(0, -23)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_ugclg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1056136213]
+scale = Vector2(1.5, 1.5)
+rect = Rect2(-96, -31, 193, 64)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

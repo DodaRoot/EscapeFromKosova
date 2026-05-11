@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://ckyofj5vb3yoo"]
+
+[ext_resource type="Texture2D" uid="uid://hbhbujmbnff2" path="res://Assets/Tiles/Entities/Helicopter.png" id="1_elawj"]
+[ext_resource type="Script" uid="uid://b8lw4l2cw15yd" path="res://Scripts/heli_player.gd" id="1_lv3mb"]
+[ext_resource type="AudioStream" uid="uid://b6ymgxev8yri3" path="res://Assets/Audio/Enemy/Helicopter.mp3" id="2_lv3mb"]
+[ext_resource type="Texture2D" uid="uid://cwbxn6jjjbpsg" path="res://Assets/UI/HUD/HealthUI.png" id="4_0wo31"]
+[ext_resource type="Texture2D" uid="uid://3y72kpt4ox" path="res://Assets/UI/HUD/BulletsUI.png" id="5_vd010"]
+[ext_resource type="Texture2D" uid="uid://sdhihvy3ovtr" path="res://Assets/UI/HUD/MoneyUI.png" id="6_nv3a0"]
+[ext_resource type="Texture2D" uid="uid://cjre7fohw8wmo" path="res://Assets/UI/MenuItems/Clock.png" id="7_oxcku"]
+[ext_resource type="PackedScene" uid="uid://b80iue6e73tcx" path="res://Scenes/Objects/dev/touch_screen_button.tscn" id="8_smaks"]
+[ext_resource type="Texture2D" uid="uid://bkd64jmmlne05" path="res://Assets/UI/Buttons/Pause_Default.png" id="9_h7gtw"]
+[ext_resource type="Texture2D" uid="uid://b6k55hfa3s560" path="res://Assets/UI/Buttons/Pause_Pressed.png" id="10_gfj1t"]
+[ext_resource type="Texture2D" uid="uid://dv7oajcbmnfak" path="res://Assets/UI/HUD/Right_Default.png" id="11_mmf0t"]
+[ext_resource type="Texture2D" uid="uid://cdrw4mppmirbu" path="res://Assets/UI/HUD/Right_Pressed.png" id="12_4mpgg"]
+[ext_resource type="Texture2D" uid="uid://dtprkmopcq2rg" path="res://Assets/UI/HUD/Left_Default.png" id="13_ori3a"]
+[ext_resource type="Texture2D" uid="uid://sderis0sugnt" path="res://Assets/UI/HUD/Left_Pressed.png" id="14_315qs"]
+[ext_resource type="Texture2D" uid="uid://dumqll47eobfn" path="res://Assets/UI/HUD/RocketLauncher_Default.png" id="19_i6cej"]
+[ext_resource type="Texture2D" uid="uid://cajxe5ukodw6a" path="res://Assets/UI/HUD/RocketLauncher_Pressed.png" id="20_k0r65"]
+[ext_resource type="Texture2D" uid="uid://b78tbmpjlrx47" path="res://Assets/UI/HUD/Jump_Default.png" id="21_gms1f"]
+[ext_resource type="Texture2D" uid="uid://bga47rdybs7fq" path="res://Assets/UI/HUD/Jump_Pressed.png" id="22_tjk5r"]
+[ext_resource type="FontFile" uid="uid://bi8glgtv55bvw" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="23_qdo1f"]
+[ext_resource type="Script" uid="uid://didcnth7vsgih" path="res://Scripts/camera_2d.gd" id="24_vd010"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vd010"]
+radius = 77.0
+height = 528.0
+
+[node name="Helicopter_Player" type="CharacterBody2D" unique_id=434048408 groups=["Player"]]
+collision_layer = 3
+script = ExtResource("1_lv3mb")
+
+[node name="Helicopter" type="Sprite2D" parent="." unique_id=58530963]
+scale = Vector2(4, 4)
+texture = ExtResource("1_elawj")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1057883595]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vd010")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=765929369]
+position = Vector2(0, 170)
+
+[node name="Audio_IdleFly" type="AudioStreamPlayer" parent="." unique_id=458430705]
+stream = ExtResource("2_lv3mb")
+autoplay = true
+
+[node name="HeliHud" type="CanvasLayer" parent="." unique_id=1838336432 groups=["HUD"]]
+
+[node name="ContainerOfItems" type="Control" parent="HeliHud" unique_id=165781368]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Health" type="TextureRect" parent="HeliHud/ContainerOfItems" unique_id=2042942987]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 640.0
+offset_bottom = 291.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_0wo31")
+
+[node name="HealthText" type="Label" parent="HeliHud/ContainerOfItems/Health" unique_id=620487851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -66.0
+offset_right = 253.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bullets" type="TextureRect" parent="HeliHud/ContainerOfItems" unique_id=86349841]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 5.0
+offset_right = 958.0
+offset_bottom = 302.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_vd010")
+
+[node name="BulletsText" type="Label" parent="HeliHud/ContainerOfItems/Bullets" unique_id=42630846]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -54.5
+offset_right = 253.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "30/60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="TextureRect" parent="HeliHud/ContainerOfItems" unique_id=305468334]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 38.0
+offset_right = 1278.0
+offset_bottom = 275.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_nv3a0")
+
+[node name="MoneyText" type="Label" parent="HeliHud/ContainerOfItems/Money" unique_id=1915556775]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -94.5
+offset_right = 253.0
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeContainer" type="Node2D" parent="HeliHud/ContainerOfItems" unique_id=1131310489]
+position = Vector2(997, 66)
+
+[node name="TimeText" type="Label" parent="HeliHud/ContainerOfItems/TimeContainer" unique_id=1474467321]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -19.0
+offset_right = 417.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.5411765, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.43137255, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "200"
+vertical_alignment = 1
+
+[node name="TimeIcon" type="Sprite2D" parent="HeliHud/ContainerOfItems/TimeContainer" unique_id=2089737790]
+position = Vector2(59.000004, 31)
+scale = Vector2(0.41243517, 0.4)
+texture = ExtResource("7_oxcku")
+
+[node name="ContainerOfSettings" type="Control" parent="HeliHud" unique_id=1448133935]
+z_index = -2
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Pause" parent="HeliHud/ContainerOfSettings" unique_id=1686357396 instance=ExtResource("8_smaks")]
+position = Vector2(-201, 27)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("9_h7gtw")
+texture_pressed = ExtResource("10_gfj1t")
+action = "Pause"
+
+[node name="ContainerOfControlls" type="Control" parent="HeliHud" unique_id=266959750]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0515137
+offset_bottom = 2.0515137
+grow_vertical = 0
+
+[node name="MoveRight" parent="HeliHud/ContainerOfControlls" unique_id=1873249949 instance=ExtResource("8_smaks")]
+position = Vector2(292.09167, -261.05157)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("11_mmf0t")
+texture_pressed = ExtResource("12_4mpgg")
+action = "MoveRight"
+
+[node name="MoveLeft" parent="HeliHud/ContainerOfControlls" unique_id=648873152 instance=ExtResource("8_smaks")]
+position = Vector2(25.945631, -261.05157)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("13_ori3a")
+texture_pressed = ExtResource("14_315qs")
+action = "MoveLeft"
+
+[node name="RocketLauncher" parent="HeliHud/ContainerOfControlls" unique_id=1350462030 instance=ExtResource("8_smaks")]
+position = Vector2(44.000008, -532.0516)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("19_i6cej")
+texture_pressed = ExtResource("20_k0r65")
+
+[node name="Control" type="Control" parent="HeliHud/ContainerOfControlls" unique_id=504686302]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -333.0515
+offset_right = 595.0
+grow_vertical = 0
+
+[node name="ContainerOfJumpAndGuns" type="Control" parent="HeliHud" unique_id=1627859120]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Jump" parent="HeliHud/ContainerOfJumpAndGuns" unique_id=753373137 instance=ExtResource("8_smaks")]
+position = Vector2(-263.99997, -249)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("21_gms1f")
+texture_pressed = ExtResource("22_tjk5r")
+action = "Jump"
+
+[node name="Fps" type="Label" parent="HeliHud" unique_id=89332000]
+offset_left = 32.0
+offset_top = 155.0
+offset_right = 332.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(1, 0.6784314, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.19607843, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("23_qdo1f")
+theme_override_font_sizes/font_size = 60
+text = "FPS: "
+
+[node name="Camera2DHeli" type="Camera2D" parent="." unique_id=1151557102 groups=["Camera"]]
+offset = Vector2(0, -140)
+zoom = Vector2(0.6, 0.6)
+process_callback = 0
+limit_top = -2000
+limit_bottom = 300
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("24_vd010")
+
+[connection signal="pressed" from="HeliHud/ContainerOfControlls/RocketLauncher" to="." method="_on_rocket_launcher_pressed"]

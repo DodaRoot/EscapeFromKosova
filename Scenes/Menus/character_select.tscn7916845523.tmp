@@ -1,0 +1,481 @@
+[gd_scene load_steps=18 format=3 uid="uid://b0q42dh6cm7t4"]
+
+[ext_resource type="Script" uid="uid://q77njl6e8jyh" path="res://Scenes/Menus/character_select.gd" id="1_riceq"]
+[ext_resource type="Texture2D" uid="uid://dfv526lasw5c8" path="res://Assets/UI/MenuItems/DefaultMenu.png" id="2_riceq"]
+[ext_resource type="FontFile" uid="uid://uibox0de614s" path="res://Assets/Fonts/Kaph_Font_1_20/OpenType (.otf)/Kaph-Regular.otf" id="3_urnt6"]
+[ext_resource type="Texture2D" uid="uid://wk8dhbjjshtp" path="res://Assets/UI/MenuItems/Money.png" id="4_2m6tg"]
+[ext_resource type="Texture2D" uid="uid://cd2b1csk610k5" path="res://Assets/Characters/Faces/MenuFaces/HashimThaqi.png" id="4_y1lku"]
+[ext_resource type="Texture2D" uid="uid://2g6y1nm6lexc" path="res://Assets/UI/Buttons/Deny.png" id="5_ffcec"]
+[ext_resource type="Texture2D" uid="uid://7skxsscjg5ll" path="res://Assets/Characters/Faces/MenuFaces/RamushHarajdinaj.png" id="5_ut0o1"]
+[ext_resource type="Texture2D" uid="uid://bj8t3f2dxwif8" path="res://Assets/Characters/Faces/MenuFaces/AlbinKurti.png" id="6_riceq"]
+[ext_resource type="Texture2D" uid="uid://drwerlvxpbls3" path="res://Assets/Characters/Faces/MenuFaces/IbrahimRugova.png" id="7_urnt6"]
+[ext_resource type="Texture2D" uid="uid://dh2b54v3mf02" path="res://Assets/Characters/Faces/MenuFaces/AdemJashari.png" id="8_2m6tg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0ruq"]
+
+[sub_resource type="Theme" id="Theme_y1lku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ut0o1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_riceq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urnt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m6tg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffcec"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_riceq")
+
+[node name="DefaultMenu" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(700, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -423.75
+offset_top = -442.25
+offset_right = 423.75
+offset_bottom = 442.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_riceq")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="DefaultMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -395.0
+offset_right = 235.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 65
+text = "Characters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyHad" type="Label" parent="DefaultMenu/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.5
+offset_top = 27.5
+offset_right = 240.5
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 40
+text = "Money: 0"
+vertical_alignment = 1
+
+[node name="Deny" type="Sprite2D" parent="DefaultMenu"]
+position = Vector2(778.75, 131.25)
+scale = Vector2(0.3538115, 0.3538115)
+texture = ExtResource("5_ffcec")
+
+[node name="Back" type="Button" parent="DefaultMenu/Deny"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.5
+offset_top = -128.5
+offset_right = -128.5
+offset_bottom = -128.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w0ruq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w0ruq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DefaultMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.5
+offset_top = 207.25
+offset_right = -112.75
+offset_bottom = -84.25
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_y1lku")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+
+[node name="Hashish" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HashishTaqi" type="TextureRect" parent="DefaultMenu/ScrollContainer/VBoxContainer/Hashish"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_y1lku")
+
+[node name="BuyHashish" type="Button" parent="DefaultMenu/ScrollContainer/VBoxContainer/Hashish/HashishTaqi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ut0o1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ut0o1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer/Hashish"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/Hashish/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "Hashish Taqi"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/Hashish/VBoxContainer/Name"]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 301.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "Selected "
+vertical_alignment = 1
+
+[node name="Rambo" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Rambo" type="TextureRect" parent="DefaultMenu/ScrollContainer/VBoxContainer/Rambo"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_ut0o1")
+
+[node name="BuyRambo" type="Button" parent="DefaultMenu/ScrollContainer/VBoxContainer/Rambo/Rambo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_riceq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_riceq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer/Rambo"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/Rambo/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "Rambo"
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/Rambo/VBoxContainer/Name"]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 153.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "1000"
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="DefaultMenu/ScrollContainer/VBoxContainer/Rambo/VBoxContainer/Name/Price"]
+position = Vector2(135, 19)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_2m6tg")
+
+[node name="MrBini" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MrBini" type="TextureRect" parent="DefaultMenu/ScrollContainer/VBoxContainer/MrBini"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("6_riceq")
+
+[node name="BuyBini" type="Button" parent="DefaultMenu/ScrollContainer/VBoxContainer/MrBini/MrBini"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_urnt6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_urnt6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer/MrBini"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/MrBini/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "Mr Bini"
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/MrBini/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "2000"
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="DefaultMenu/ScrollContainer/VBoxContainer/MrBini/VBoxContainer/Price"]
+position = Vector2(145, 18)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_2m6tg")
+
+[node name="DrRugova" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DrRugova" type="TextureRect" parent="DefaultMenu/ScrollContainer/VBoxContainer/DrRugova"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("7_urnt6")
+
+[node name="BuyRugova" type="Button" parent="DefaultMenu/ScrollContainer/VBoxContainer/DrRugova/DrRugova"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2m6tg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2m6tg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer/DrRugova"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/DrRugova/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "Dr.Rugova"
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/DrRugova/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "3000"
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="DefaultMenu/ScrollContainer/VBoxContainer/DrRugova/VBoxContainer/Price"]
+position = Vector2(145, 19.000008)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_2m6tg")
+
+[node name="KomandantiLegjendar" type="HBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="KomandantiLegjendar" type="TextureRect" parent="DefaultMenu/ScrollContainer/VBoxContainer/KomandantiLegjendar"]
+modulate = Color(1, 1, 1, 0.39215687)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("8_2m6tg")
+
+[node name="BuyAdem" type="Button" parent="DefaultMenu/ScrollContainer/VBoxContainer/KomandantiLegjendar/KomandantiLegjendar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ffcec")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ffcec")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefaultMenu/ScrollContainer/VBoxContainer/KomandantiLegjendar"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/KomandantiLegjendar/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "Komandanti
+Legjendar"
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="DefaultMenu/ScrollContainer/VBoxContainer/KomandantiLegjendar/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_urnt6")
+theme_override_font_sizes/font_size = 35
+text = "3000"
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="DefaultMenu/ScrollContainer/VBoxContainer/KomandantiLegjendar/VBoxContainer/Price"]
+position = Vector2(141, 18.000008)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_2m6tg")
+
+[connection signal="pressed" from="DefaultMenu/Deny/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/VBoxContainer/Hashish/HashishTaqi/BuyHashish" to="." method="_on_buy_hashish_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/VBoxContainer/Rambo/Rambo/BuyRambo" to="." method="_on_buy_rambo_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/VBoxContainer/MrBini/MrBini/BuyBini" to="." method="_on_buy_bini_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/VBoxContainer/DrRugova/DrRugova/BuyRugova" to="." method="_on_buy_rugova_pressed"]
+[connection signal="pressed" from="DefaultMenu/ScrollContainer/VBoxContainer/KomandantiLegjendar/KomandantiLegjendar/BuyAdem" to="." method="_on_buy_adem_pressed"]

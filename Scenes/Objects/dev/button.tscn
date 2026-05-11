@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ca2odhaaov7k8"]
+
+[ext_resource type="Script" uid="uid://1guwct0lvmbw" path="res://Scripts/button.gd" id="2_kmhgb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sm1nq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_blqi4"]
+load_path = "res://.godot/imported/Play_Default.png-04f143b29536ebbc11a267632e1a8666.ctex"
+
+[node name="Button" type="Button" unique_id=2108069336]
+offset_right = 251.0
+offset_bottom = 266.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_sm1nq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sm1nq")
+icon = SubResource("CompressedTexture2D_blqi4")
+script = ExtResource("2_kmhgb")
+
+[node name="Audio_CLICKSOUND" type="AudioStreamPlayer" parent="." unique_id=370645918]
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

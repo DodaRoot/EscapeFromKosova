@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ruaep6mybj8d"]
+
+[ext_resource type="Texture2D" uid="uid://b771fmqxnmnn" path="res://Assets/Tiles/Entities/StopSign.png" id="1_v78fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v78fn"]
+size = Vector2(14, 2118)
+
+[node name="LevelBarrier" type="StaticBody2D" unique_id=745696889]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1506784457]
+position = Vector2(0, -814)
+shape = SubResource("RectangleShape2D_v78fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=321101009]
+scale = Vector2(2, 2)
+texture = ExtResource("1_v78fn")

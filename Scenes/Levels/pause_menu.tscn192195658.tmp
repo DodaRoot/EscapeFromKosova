@@ -1,0 +1,265 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0ayqnsxofxfc"]
+
+[ext_resource type="Script" uid="uid://dg8ybrj1s6bsd" path="res://Scenes/Levels/pause_menu.gd" id="1_76vfl"]
+[ext_resource type="Texture2D" uid="uid://38uvpbggvq7r" path="res://Assets/UI/ButtonOne.png" id="1_hdmo1"]
+[ext_resource type="Shader" uid="uid://cx0tnp424hkvc" path="res://Assets/Backgrounds/pause_menu.gdshader" id="1_nwcfo"]
+[ext_resource type="Texture2D" uid="uid://karnlflytbmq" path="res://Assets/UI/BackMenu.png" id="2_05uyy"]
+[ext_resource type="Texture2D" uid="uid://drpxhnwj42wjh" path="res://Assets/UI/Pause.png" id="5_gt76x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05uyy"]
+shader = ExtResource("1_nwcfo")
+shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdmo1"]
+
+[sub_resource type="Animation" id="Animation_p81d2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nwcfo"]
+resource_name = "blur"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.000000095]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_05uyy"]
+_data = {
+&"RESET": SubResource("Animation_p81d2"),
+&"blur": SubResource("Animation_nwcfo")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("1_76vfl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_05uyy")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_05uyy")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(500, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -400.0
+offset_right = 250.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="UnPause" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 130)
+layout_mode = 2
+size_flags_vertical = 6
+texture = ExtResource("1_hdmo1")
+
+[node name="UnPause" type="Button" parent="PanelContainer/HBoxContainer/UnPause"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -291.0
+offset_right = 291.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdmo1")
+text = "UnPause"
+
+[node name="Settings" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 130)
+layout_mode = 2
+size_flags_vertical = 6
+texture = ExtResource("1_hdmo1")
+
+[node name="Settings" type="Button" parent="PanelContainer/HBoxContainer/Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -291.0
+offset_right = 291.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdmo1")
+text = "Settings"
+
+[node name="Menu" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 130)
+layout_mode = 2
+size_flags_vertical = 6
+texture = ExtResource("1_hdmo1")
+
+[node name="Menu" type="Button" parent="PanelContainer/HBoxContainer/Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -291.0
+offset_right = 291.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdmo1")
+text = "Menu"
+
+[node name="Quit" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 130)
+layout_mode = 2
+size_flags_vertical = 6
+texture = ExtResource("1_hdmo1")
+
+[node name="Quit" type="Button" parent="PanelContainer/HBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -291.0
+offset_right = 291.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hdmo1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdmo1")
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_05uyy")
+}
+
+[node name="Pause" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 34.0
+offset_right = -55.0
+offset_bottom = 144.0
+grow_horizontal = 0
+
+[node name="Pause" type="TouchScreenButton" parent="Pause"]
+position = Vector2(0, 6.0000005)
+texture_normal = ExtResource("5_gt76x")
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/UnPause/UnPause" to="." method="_on_un_pause_pressed"]
+[connection signal="pressed" from="Pause/Pause" to="." method="_on_pause_button_pressed"]
