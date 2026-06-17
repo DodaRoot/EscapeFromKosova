@@ -1,4 +1,4 @@
-Escape From Kosova is an action-packed 2D platformer set during the 1999 Kosovo War.
+Escape From Kosova is an action-packed 2D platformer.
 
 Take on the role of a freedom fighter and battle enemy forces across challenging levels filled with gunfights, explosions, and strategic platforming.
 Navigate obstacles, defeat enemy soldiers, and complete missions to claim different weapons, unlock many interesting and funny characters and reclaim your homeland.
