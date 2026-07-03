@@ -1,0 +1,165 @@
+# Requires these repository secrets (see IOS_DEPLOYMENT_GUIDE.md Part 4):
+#   IOS_DIST_CERT_P12_BASE64
+#   IOS_DIST_CERT_PASSWORD
+#   IOS_PROVISION_PROFILE_BASE64
+#   IOS_KEYCHAIN_PASSWORD
+#   IOS_TEAM_ID
+#   APPLE_ID_EMAIL
+#   APPLE_APP_SPECIFIC_PASSWORD
+
+name: iOS TestFlight Upload
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+env:
+  GODOT_VERSION: "4.6.1"
+  SCHEME_NAME: "iOS"
+  XCODEPROJ_DIR: "ios-build"
+
+jobs:
+  build-and-upload:
+    runs-on: macos-26
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm Xcode version
+        run: xcodebuild -version
+
+      - name: Cache Godot editor + export templates
+        id: cache-godot
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/godot-editor
+            ~/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION }}.stable
+          key: godot-${{ env.GODOT_VERSION }}-macos
+
+      - name: Download Godot editor + export templates
+        if: steps.cache-godot.outputs.cache-hit != 'true'
+        run: |
+          set -euo pipefail
+          mkdir -p ~/godot-editor
+          cd ~/godot-editor
+
+          EDITOR_FILE="Godot_v${GODOT_VERSION}-stable_macos.universal.zip"
+          TEMPLATES_FILE="Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+
+          # GitHub Releases first (same network as the runner, much more reliable
+          # from CI than tuxfamily, which has frequent connectivity/outage issues).
+          # tuxfamily is kept as a fallback in case an asset is ever only on one host.
+          GITHUB_BASE="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          TUXFAMILY_BASE="https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}"
+
+          fetch() {
+            local filename="$1"
+            echo "Fetching ${filename} from GitHub Releases..."
+            if curl -fL --retry 5 --retry-delay 5 --retry-connrefused \
+                 --connect-timeout 20 --max-time 600 \
+                 -o "${filename}" "${GITHUB_BASE}/${filename}"; then
+              return 0
+            fi
+            echo "GitHub Releases failed for ${filename}, falling back to tuxfamily..."
+            curl -fL --retry 5 --retry-delay 5 --retry-connrefused \
+              --connect-timeout 20 --max-time 600 \
+              -o "${filename}" "${TUXFAMILY_BASE}/${filename}"
+          }
+
+          fetch "${EDITOR_FILE}"
+          fetch "${TEMPLATES_FILE}"
+
+          unzip -q "${EDITOR_FILE}"
+          mkdir -p "$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable"
+          unzip -q "${TEMPLATES_FILE}"
+          mv templates/* "$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable/"
+
+      - name: Install the Apple certificate and provisioning profile
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.IOS_DIST_CERT_P12_BASE64 }}
+          P12_PASSWORD: ${{ secrets.IOS_DIST_CERT_PASSWORD }}
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.IOS_PROVISION_PROFILE_BASE64 }}
+          KEYCHAIN_PASSWORD: ${{ secrets.IOS_KEYCHAIN_PASSWORD }}
+        run: |
+          set -euo pipefail
+          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
+          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o "$CERTIFICATE_PATH"
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o "$PP_PATH"
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          security import "$CERTIFICATE_PATH" -P "$P12_PASSWORD" -A \
+            -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security list-keychain -d user -s "$KEYCHAIN_PATH" login.keychain
+
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp "$PP_PATH" ~/Library/MobileDevice/Provisioning\ Profiles/
+
+          # Extract the profile's UUID so the archive step can reference it exactly
+          PP_UUID=$(grep -a -A 1 'UUID' "$PP_PATH" | grep string | sed -e "s|<string>||" -e "s|</string>||" | tr -d '\t')
+          echo "PP_UUID=$PP_UUID" >> "$GITHUB_ENV"
+          echo "KEYCHAIN_PATH=$KEYCHAIN_PATH" >> "$GITHUB_ENV"
+
+      - name: Export Xcode project from Godot (project files only, no signing yet)
+        run: |
+          set -euo pipefail
+          GODOT_BIN=$(find ~/godot-editor -maxdepth 1 -iname "Godot*.app" -print -quit)
+          "$GODOT_BIN/Contents/MacOS/Godot" --headless --export-release "iOS"
+
+      - name: Archive with xcodebuild (manual signing)
+        env:
+          IOS_TEAM_ID: ${{ secrets.IOS_TEAM_ID }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/build"
+          xcodebuild clean archive \
+            -project "${XCODEPROJ_DIR}/${SCHEME_NAME}.xcodeproj" \
+            -scheme "${SCHEME_NAME}" \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination "generic/platform=iOS" \
+            -archivePath "$RUNNER_TEMP/build/${SCHEME_NAME}.xcarchive" \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="Apple Distribution" \
+            PROVISIONING_PROFILE="${PP_UUID}" \
+            DEVELOPMENT_TEAM="${IOS_TEAM_ID}" \
+            OTHER_CODE_SIGN_FLAGS="--keychain ${KEYCHAIN_PATH}"
+
+      - name: Export signed .ipa
+        run: |
+          set -euo pipefail
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/build/${SCHEME_NAME}.xcarchive" \
+            -exportOptionsPlist exportOptions.plist \
+            -exportPath "$RUNNER_TEMP/build/output"
+
+      - name: Upload .ipa as a workflow artifact (for debugging)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ipa
+          path: ${{ runner.temp }}/build/output/*.ipa
+          retention-days: 14
+
+      - name: Upload to App Store Connect / TestFlight
+        env:
+          APPLE_ID_EMAIL: ${{ secrets.APPLE_ID_EMAIL }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+        run: |
+          set -euo pipefail
+          IPA_PATH=$(find "$RUNNER_TEMP/build/output" -name "*.ipa" -print -quit)
+          xcrun altool --upload-app \
+            -t ios \
+            -f "$IPA_PATH" \
+            -u "$APPLE_ID_EMAIL" \
+            -p "$APPLE_APP_SPECIFIC_PASSWORD" \
+            --verbose
