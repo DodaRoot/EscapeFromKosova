@@ -435,6 +435,7 @@ money = 200
 position = Vector2(1091, -129)
 
 [node name="Label" type="Label" parent="Entities" unique_id=179522482]
+z_index = 5
 offset_left = 16030.0
 offset_top = -808.0
 offset_right = 16338.0
@@ -461,24 +462,28 @@ theme_override_font_sizes/font_size = 40
 text = "Jump"
 
 [node name="Label3" type="Label" parent="Entities" unique_id=1238272009]
-offset_left = 3147.0
-offset_top = -403.0
-offset_right = 3577.0
-offset_bottom = -354.0
+offset_left = 3115.0
+offset_top = -466.0
+offset_right = 3647.0
+offset_bottom = -417.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("30_dbtcj")
 theme_override_font_sizes/font_size = 40
-text = "Click on enemy to shoot"
+text = "Click on enemy to shoot them"
 
 [node name="Enemies" type="Node" parent="." unique_id=2136085302]
 
 [node name="BlackOutfit" parent="Enemies" unique_id=1518145022 instance=ExtResource("26_iel78")]
-position = Vector2(16513, -721)
+position = Vector2(16386, -721)
+AGRO_DIST = 1000.0
+StaticMovment = true
 health = 50
 
 [node name="BlackOutfit3" parent="Enemies" unique_id=200462629 instance=ExtResource("26_iel78")]
-position = Vector2(4135, -139)
+position = Vector2(3384, -139)
+AGRO_DIST = 1000.0
+StaticMovment = true
 health = 50

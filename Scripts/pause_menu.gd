@@ -45,7 +45,9 @@ func _on_resume_pressed() -> void:
 	resume()
 
 func _on_options_pressed() -> void:
-	resume()
+	get_tree().paused = false
+	animation_player.play_backwards("blur")
+	SceneTransition.change_scene("res://Scenes/Menus/settings.tscn")
 
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
