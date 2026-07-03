@@ -1,7 +1,11 @@
-# Godot 4+ specific ignores
 .godot/
+
 .import/
-ios/
-android/
-addons/
-*.log
+
+build/
+exports/
+export/
+bin/
+dist/
+
+.env
