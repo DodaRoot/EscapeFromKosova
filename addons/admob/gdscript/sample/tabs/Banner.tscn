@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6u6s82p5d6qs"]
+[gd_scene format=3 uid="uid://c6u6s82p5d6qs"]
 
 [ext_resource type="Script" uid="uid://d023ltbxjofyr" path="res://addons/admob/gdscript/sample/tabs/Banner.gd" id="1_5pjv8"]
 [ext_resource type="Texture2D" uid="uid://c6d7aye5nwtvi" path="res://addons/admob/assets/pos_top_left.svg" id="2_tl"]
@@ -11,119 +11,119 @@
 [ext_resource type="Texture2D" uid="uid://5v6slm2g7ad0" path="res://addons/admob/assets/pos_bottom.svg" id="9_b"]
 [ext_resource type="Texture2D" uid="uid://e3dqlgeny8lx" path="res://addons/admob/assets/pos_bottom_right.svg" id="10_br"]
 
-[node name="Banner" type="VBoxContainer"]
+[node name="Banner" type="VBoxContainer" unique_id=497137295]
 script = ExtResource("1_5pjv8")
 
-[node name="BannerActions" type="VBoxContainer" parent="."]
+[node name="BannerActions" type="VBoxContainer" parent="." unique_id=497452350]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="LoadBanner" type="Button" parent="BannerActions"]
+[node name="LoadBanner" type="Button" parent="BannerActions" unique_id=1021662892]
 layout_mode = 2
 text = "Load Banner"
 
-[node name="DestroyBanner" type="Button" parent="BannerActions"]
+[node name="DestroyBanner" type="Button" parent="BannerActions" unique_id=222652419]
 layout_mode = 2
 disabled = true
 text = "Destroy Banner"
 
-[node name="ShowBanner" type="Button" parent="BannerActions"]
+[node name="ShowBanner" type="Button" parent="BannerActions" unique_id=4896901]
 layout_mode = 2
 disabled = true
 text = "Show Banner"
 
-[node name="HideBanner" type="Button" parent="BannerActions"]
+[node name="HideBanner" type="Button" parent="BannerActions" unique_id=289748623]
 layout_mode = 2
 disabled = true
 text = "Hide Banner"
 
-[node name="GetSize" type="Button" parent="BannerActions"]
+[node name="GetSize" type="Button" parent="BannerActions" unique_id=1748853732]
 layout_mode = 2
 disabled = true
 text = "Get Size"
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="HSeparator" type="HSeparator" parent="." unique_id=1069809665]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PositionCard" type="PanelContainer" parent="."]
+[node name="PositionCard" type="PanelContainer" parent="." unique_id=808040200]
 layout_mode = 2
 theme_type_variation = &"SectionCard"
 
-[node name="VBox" type="VBoxContainer" parent="PositionCard"]
+[node name="VBox" type="VBoxContainer" parent="PositionCard" unique_id=374278829]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="PositionCard/VBox"]
+[node name="Label" type="Label" parent="PositionCard/VBox" unique_id=1560064444]
 layout_mode = 2
 text = "AD POSITIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PositionGrid" type="GridContainer" parent="PositionCard/VBox"]
+[node name="PositionGrid" type="GridContainer" parent="PositionCard/VBox" unique_id=715702494]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 15
 columns = 3
 
-[node name="TOP_LEFT" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="TOP_LEFT" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=791102157]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Top Left"
 icon = ExtResource("2_tl")
 expand_icon = true
 
-[node name="TOP" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="TOP" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=1643042385]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Top"
 icon = ExtResource("3_t")
 expand_icon = true
 
-[node name="TOP_RIGHT" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="TOP_RIGHT" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=1313485096]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Top Right"
 icon = ExtResource("4_tr")
 expand_icon = true
 
-[node name="LEFT" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="LEFT" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=911200663]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Left"
 icon = ExtResource("5_l")
 expand_icon = true
 
-[node name="CENTER" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="CENTER" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=1298634513]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Center"
 icon = ExtResource("6_c")
 expand_icon = true
 
-[node name="RIGHT" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="RIGHT" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=2128500119]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Right"
 icon = ExtResource("7_r")
 expand_icon = true
 
-[node name="BOTTOM_LEFT" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="BOTTOM_LEFT" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=1345258397]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Bottom Left"
 icon = ExtResource("8_bl")
 expand_icon = true
 
-[node name="BOTTOM" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="BOTTOM" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=2052793906]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Bottom"
 icon = ExtResource("9_b")
 expand_icon = true
 
-[node name="BOTTOM_RIGHT" type="Button" parent="PositionCard/VBox/PositionGrid"]
+[node name="BOTTOM_RIGHT" type="Button" parent="PositionCard/VBox/PositionGrid" unique_id=990168976]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 tooltip_text = "Bottom Right"

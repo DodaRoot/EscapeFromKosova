@@ -1,20 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkl0ov3vkn76o"]
+[gd_scene format=3 uid="uid://dkl0ov3vkn76o"]
 
 [ext_resource type="Script" uid="uid://iuwm4pp8nn0i" path="res://addons/admob/gdscript/sample/tabs/Interstitial.gd" id="1_h2qnh"]
 
-[node name="Interstitial" type="VBoxContainer"]
+[node name="Interstitial" type="VBoxContainer" unique_id=1222187157]
 script = ExtResource("1_h2qnh")
 
-[node name="Load" type="Button" parent="."]
+[node name="Load" type="Button" parent="." unique_id=1496215978]
 layout_mode = 2
 text = "Load"
 
-[node name="Show" type="Button" parent="."]
+[node name="Show" type="Button" parent="." unique_id=296803636]
 layout_mode = 2
 disabled = true
 text = "Show"
 
-[node name="Destroy" type="Button" parent="."]
+[node name="Destroy" type="Button" parent="." unique_id=1187848181]
 layout_mode = 2
 disabled = true
 text = "Destroy"

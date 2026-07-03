@@ -261,5 +261,5 @@ libraries/ = SubResource("AnimationLibrary_nwnlq")
 [connection signal="pressed" from="Container/DropMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Container/DropMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Container/DropMenu/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Container/DropMenu/VBoxContainer/Restart" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Container/DropMenu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
