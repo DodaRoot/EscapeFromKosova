@@ -109,21 +109,12 @@ jobs:
           PP_UUID=$(grep -a -A 1 'UUID' "$PP_PATH" | grep string | sed -e "s|<string>||" -e "s|</string>||" | tr -d '\t')
           echo "PP_UUID=$PP_UUID" >> "$GITHUB_ENV"
           echo "KEYCHAIN_PATH=$KEYCHAIN_PATH" >> "$GITHUB_ENV"
-      - name: Resolve Godot binary
-        run: |
-          set -euo pipefail
-          echo "GODOT_BIN=$(find ~/godot-editor -name Godot -type f -perm +111 | head -n 1)" >> $GITHUB_ENV
-     
-      - name: Godot import step (critical)
-        run: |
-          set -euo pipefail
-          rm -rf .godot .import
-          "$GODOT_BIN" --headless --path . --import
   
       - name: Export Xcode project from Godot
         run: |
           set -euo pipefail
-          "$GODOT_BIN" --headless --path . --export-release "iOS"
+          GODOT_BIN=$(find ~/godot-editor -maxdepth 1 -iname "Godot*.app" -print -quit)
+          "$GODOT_BIN/Contents/MacOS/Godot" --headless --export-release "iOS"
 
       - name: Archive with xcodebuild (manual signing)
         env:
