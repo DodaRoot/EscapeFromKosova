@@ -1,4 +1,4 @@
-# Requires these repository secrets:
+# Requires these repository secrets (see IOS_DEPLOYMENT_GUIDE.md Part 4):
 #   IOS_DIST_CERT_P12_BASE64
 #   IOS_DIST_CERT_PASSWORD
 #   IOS_PROVISION_PROFILE_BASE64
@@ -46,11 +46,36 @@ jobs:
           set -euo pipefail
           mkdir -p ~/godot-editor
           cd ~/godot-editor
-          curl -fLO "https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_macos.universal.zip"
-          curl -fLO "https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
-          unzip -q "Godot_v${GODOT_VERSION}-stable_macos.universal.zip"
+
+          EDITOR_FILE="Godot_v${GODOT_VERSION}-stable_macos.universal.zip"
+          TEMPLATES_FILE="Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+
+          # GitHub Releases first (same network as the runner, much more reliable
+          # from CI than tuxfamily, which has frequent connectivity/outage issues).
+          # tuxfamily is kept as a fallback in case an asset is ever only on one host.
+          GITHUB_BASE="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          TUXFAMILY_BASE="https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}"
+
+          fetch() {
+            local filename="$1"
+            echo "Fetching ${filename} from GitHub Releases..."
+            if curl -fL --retry 5 --retry-delay 5 --retry-connrefused \
+                 --connect-timeout 20 --max-time 600 \
+                 -o "${filename}" "${GITHUB_BASE}/${filename}"; then
+              return 0
+            fi
+            echo "GitHub Releases failed for ${filename}, falling back to tuxfamily..."
+            curl -fL --retry 5 --retry-delay 5 --retry-connrefused \
+              --connect-timeout 20 --max-time 600 \
+              -o "${filename}" "${TUXFAMILY_BASE}/${filename}"
+          }
+
+          fetch "${EDITOR_FILE}"
+          fetch "${TEMPLATES_FILE}"
+
+          unzip -q "${EDITOR_FILE}"
           mkdir -p "$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable"
-          unzip -q "Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          unzip -q "${TEMPLATES_FILE}"
           mv templates/* "$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable/"
 
       - name: Install the Apple certificate and provisioning profile
