@@ -156,11 +156,15 @@ func _create_ad_view() -> void:
 	if _ad_view:
 		destroy_ad_view()
 
-	var unit_id : String
-	if OS.get_name() == "Android":
-		# Test addmob unit ID : ca-app-pub-3940256099942544/6300978111
-		# My addmob unit ID : ca-app-pub-5260800330186130/3514415812
-		unit_id = "ca-app-pub-5260800330186130/3514415812"
+	var unit_id := ""
+
+	match OS.get_name():
+		"Android":
+			unit_id = "ca-app-pub-5260800330186130/3514415812"
+		"iOS":
+			unit_id = "ca-app-pub-5260800330186130/8063129324"
+		_:
+			return
 
 	_ad_view = AdView.new(unit_id, AdSize.BANNER, AdPosition.Values.BOTTOM)
 
