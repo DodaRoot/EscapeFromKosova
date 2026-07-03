@@ -20,7 +20,6 @@ extends CanvasLayer
 @onready var container_of_settings: Control = $ContainerOfSettings
 @onready var container_of_controlls: Control = $ContainerOfControlls
 @onready var container_of_jump_and_guns: Control = $ContainerOfJumpAndGuns
-
 @onready var fps: Label = $Fps
 var _ad_view : AdView
 
