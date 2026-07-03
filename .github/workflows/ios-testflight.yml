@@ -116,6 +116,11 @@ jobs:
           GODOT_BIN=$(find ~/godot-editor -maxdepth 1 -iname "Godot*.app" -print -quit)
           "$GODOT_BIN/Contents/MacOS/Godot" --headless --import
   
+      - name: Ensure export directory exists
+        run: |
+          set -euo pipefail
+          mkdir -p ios-build
+  
       - name: Export Xcode project from Godot
         run: |
           set -euo pipefail
