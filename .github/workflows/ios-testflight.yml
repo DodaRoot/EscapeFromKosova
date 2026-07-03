@@ -109,6 +109,12 @@ jobs:
           PP_UUID=$(grep -a -A 1 'UUID' "$PP_PATH" | grep string | sed -e "s|<string>||" -e "s|</string>||" | tr -d '\t')
           echo "PP_UUID=$PP_UUID" >> "$GITHUB_ENV"
           echo "KEYCHAIN_PATH=$KEYCHAIN_PATH" >> "$GITHUB_ENV"
+
+      - name: Import project (build UID cache)
+        run: |
+          set -euo pipefail
+          GODOT_BIN=$(find ~/godot-editor -maxdepth 1 -iname "Godot*.app" -print -quit)
+          "$GODOT_BIN/Contents/MacOS/Godot" --headless --import
   
       - name: Export Xcode project from Godot
         run: |
