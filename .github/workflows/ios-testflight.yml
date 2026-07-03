@@ -120,7 +120,7 @@ jobs:
         run: |
           set -euo pipefail
           GODOT_BIN=$(find ~/godot-editor -maxdepth 1 -iname "Godot*.app" -print -quit)
-          "$GODOT_BIN/Contents/MacOS/Godot" --headless --export-release "iOS"
+          "$GODOT_BIN/Contents/MacOS/Godot" --headless --export-release "iOS" "${XCODEPROJ_DIR}/iOS.xcodeproj"
 
       - name: Archive with xcodebuild (manual signing)
         env:
