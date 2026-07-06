@@ -1,11 +1,3 @@
 .godot/
-
 .import/
-
-build/
-exports/
-export/
-bin/
-dist/
-
 .env
