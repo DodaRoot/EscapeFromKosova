@@ -126,6 +126,16 @@ jobs:
           set -euo pipefail
           GODOT_BIN=$(find ~/godot-editor -maxdepth 1 -iname "Godot*.app" -print -quit)
           "$GODOT_BIN/Contents/MacOS/Godot" --headless --export-release "iOS" "${XCODEPROJ_DIR}/iOS.xcodeproj"
+      
+      - name: Install CocoaPods dependencies
+        run: |
+          set -euo pipefail
+
+          sudo gem install cocoapods
+
+          cd "${XCODEPROJ_DIR}"
+
+          pod install --repo-update
 
       - name: Archive with xcodebuild (manual signing)
         env:
@@ -134,7 +144,7 @@ jobs:
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/build"
           xcodebuild clean archive \
-            -project "${XCODEPROJ_DIR}/${SCHEME_NAME}.xcodeproj" \
+            -workspace "${XCODEPROJ_DIR}/${SCHEME_NAME}.xcworkspace" \
             -scheme "${SCHEME_NAME}" \
             -configuration Release \
             -sdk iphoneos \
