@@ -10,7 +10,7 @@
 
 The game draws on the Kosovo War as its setting and mixes history-inspired atmosphere with arcade-style combat and platforming.
 
-> **Store links:** _Add App Store and Google Play links here._
+> **Live on Apple App Store and Google Play Store**
 
 ### At a Glance
 
